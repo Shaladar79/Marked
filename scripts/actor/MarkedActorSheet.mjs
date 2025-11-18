@@ -4,7 +4,7 @@ export class MarkedActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["marked", "sheet", "actor"],
-      template: "systems/marked-system/templates/actors/actor-sheet.hbs",
+      template: "systems/marked/templates/actors/actor-sheet.hbs",
       width: 900,
       height: 700,
       tabs: [
