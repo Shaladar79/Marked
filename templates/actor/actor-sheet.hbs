@@ -15,10 +15,25 @@
           <label>Type</label>
           <input type="text" value="{{actor.type}}" disabled />
         </div>
+
         <div class="field">
           <label>Rank</label>
-          <input type="text" name="system.details.rank" value="{{system.details.rank}}" />
+          <select name="system.details.rank">
+            {{#select system.details.rank}}
+              <option value="Normal">Normal</option>
+              <option value="Quartz">Quartz</option>
+              <option value="Topaz">Topaz</option>
+              <option value="Garnet">Garnet</option>
+              <option value="Emerald">Emerald</option>
+              <option value="Sapphire">Sapphire</option>
+              <option value="Ruby">Ruby</option>
+              <option value="Diamond">Diamond</option>
+              <option value="Mythrite">Mythrite</option>
+              <option value="Celestite">Celestite</option>
+            {{/select}}
+          </select>
         </div>
+
         <div class="field">
           <label>Mark</label>
           <input type="text" name="system.details.mark" value="{{system.details.mark}}" />
@@ -36,7 +51,7 @@
   <!-- BODY -->
   <section class="sheet-body">
     <div class="tab" data-group="primary" data-tab="main">
-      <!-- Later: attributes (Body/Mind/Soul or whatever you decide) -->
+      <!-- Later: attributes (Power/Speed/Spirit/Recovery & Status) -->
       <p>TODO: Stats and Marks go here.</p>
     </div>
 
@@ -46,4 +61,3 @@
     </div>
   </section>
 </form>
-
