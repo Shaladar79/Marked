@@ -14,29 +14,71 @@
           "body": {
             "label": "Body",
             "value": 0,
-            "might":      { "label": "Might",      "value": 0 },
-            "swiftness":  { "label": "Swiftness",  "value": 0 },
-            "fortitude":  { "label": "Fortitude",  "value": 0 },
-            "endurance":  { "label": "Endurance",  "value": 0 }
+            "might": { "label": "Might", "value": 0 },
+            "swiftness": { "label": "Swiftness", "value": 0 },
+            "fortitude": { "label": "Fortitude", "value": 0 },
+            "endurance": { "label": "Endurance", "value": 0 }
           },
           "mind": {
             "label": "Mind",
             "value": 0,
-            "insight":   { "label": "Insight",   "value": 0 },
+            "insight": { "label": "Insight", "value": 0 },
             "quickness": { "label": "Quickness", "value": 0 },
             "willpower": { "label": "Willpower", "value": 0 },
-            "focus":     { "label": "Focus",     "value": 0 }
+            "focus": { "label": "Focus", "value": 0 }
           },
           "soul": {
             "label": "Soul",
             "value": 0,
-            "presence":  { "label": "Presence",  "value": 0 },
-            "grace":     { "label": "Grace",     "value": 0 },
-            "resolve":   { "label": "Resolve",   "value": 0 },
+            "presence": { "label": "Presence", "value": 0 },
+            "grace": { "label": "Grace", "value": 0 },
+            "resolve": { "label": "Resolve", "value": 0 },
             "resonance": { "label": "Resonance", "value": 0 }
           }
         },
-        "status": {}
+        "status": {
+          "vitality": {
+            "label": "Vitality",
+            "value": 0,
+            "max": 0
+          },
+          "mana": {
+            "label": "Mana",
+            "value": 0,
+            "max": 0
+          },
+          "stamina": {
+            "label": "Stamina",
+            "value": 0,
+            "max": 0
+          },
+          "defense": {
+            "label": "Defense",
+            "value": 0
+          },
+          "reaction": {
+            "label": "Reaction",
+            "value": 0
+          },
+          "trauma": {
+            "label": "Trauma",
+            "value": 0,
+            "max": 0
+          },
+          "pace": {
+            "label": "Pace",
+            "value": 0
+          },
+          "armor": {
+            "label": "Armor",
+            "value": 0,
+            "max": 0
+          },
+          "shielding": {
+            "label": "Shielding",
+            "value": 0
+          }
+        }
       }
     }
   },
@@ -51,4 +93,3 @@
     }
   }
 }
-
