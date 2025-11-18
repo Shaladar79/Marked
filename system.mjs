@@ -23,13 +23,13 @@ Hooks.once("init", function () {
   Items.unregisterSheet("core", ItemSheet);
 
   // Register our actor sheet (pc + npc for now)
-  Actors.registerSheet("marked-system", MarkedActorSheet, {
+  Actors.registerSheet("marked", MarkedActorSheet, {
     types: ["pc", "npc"],
     makeDefault: true
   });
 
   // Register our item sheet
-  Items.registerSheet("marked-system", MarkedItemSheet, {
+  Items.registerSheet("marked", MarkedItemSheet, {
     makeDefault: true
   });
 });
