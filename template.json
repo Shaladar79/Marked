@@ -10,26 +10,11 @@
           "race": "",
           "background": ""
         },
-        "attributes": {
-          "power":    { "label": "Power",    "value": 10, "mod": 0 },
-          "speed":    { "label": "Speed",    "value": 10, "mod": 0 },
-          "spirit":   { "label": "Spirit",   "value": 10, "mod": 0 },
-          "recovery": { "label": "Recovery", "value": 10, "mod": 0 }
-        },
-        "status": {
-          "lifeForce": { "label": "Life Force", "value": 0, "max": 0 },
-          "mana":      { "label": "Mana",       "value": 0, "max": 0 },
-          "stamina":   { "label": "Stamina",    "value": 0, "max": 0 },
-          "pace":      { "label": "Pace",       "value": 0 },
-          "initiative":{ "label": "Initiative","value": 0 },
-          "defense":   { "label": "Defense",   "value": 0 },
-          "trauma":    { "label": "Trauma",    "value": 0, "max": 0 },
-          "shielding": { "label": "Shielding", "value": 0 }
-        }
+        "attributes": {},
+        "status": {}
       }
     }
   },
-
   "Item": {
     "types": ["generic"],
     "templates": {
@@ -41,4 +26,3 @@
     }
   }
 }
-
