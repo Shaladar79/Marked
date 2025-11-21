@@ -1,93 +1,87 @@
 {{!-- templates/actors/parts/header.hbs --}}
 
-<header class="sheet-header flexrow">
-  <div class="profile">
-    <img class="profile-img"
-         src="{{actor.img}}"
-         data-edit="img"
-         title="{{actor.name}}" />
+<header class="sheet-header">
+
+  {{!-- TOP ROW: Type ABOVE the portrait (no label) --}}
+  <div class="header-top-row flexrow">
+    <div class="type-field">
+      <input type="text"
+             value="{{actor.type}}"
+             class="type-display"
+             disabled />
+    </div>
   </div>
 
-  <div class="header-fields">
+  {{!-- MAIN ROW: Portrait + everything else --}}
+  <div class="header-main-row flexrow">
 
-    {{!-- NAME --}}
-    <div class="name-row">
-      <input name="name"
-             type="text"
-             value="{{actor.name}}"
-             placeholder="Name" />
+    {{!-- PORTRAIT --}}
+    <div class="profile">
+      <img class="profile-img"
+           src="{{actor.img}}"
+           data-edit="img"
+           title="{{actor.name}}" />
     </div>
 
-    {{!-- TYPE / RANK / MARK --}}
-    <div class="meta-row flexrow">
+    <div class="header-fields">
 
-      <div class="field">
-        <label>Type</label>
-        <input type="text" value="{{actor.type}}" disabled />
+      {{!-- NAME --}}
+      <div class="name-row">
+        <input name="name"
+               type="text"
+               value="{{actor.name}}"
+               placeholder="Name" />
       </div>
 
-      {{!-- RANK DROPDOWN (modular partial) --}}
-     <div class="field rank-field">
-  <label>Rank</label>
+      {{!-- RANK / RACE / BACKGROUND --}}
+      <div class="meta-row flexrow">
 
-  <select name="system.details.rank" data-dtype="String">
-    {{selectOptions config.ranks selected=system.details.rank valueAttr="key" labelAttr="label"}}
-  </select>
-</div>
+        {{!-- RANK via partial --}}
+        {{> "systems/the-marked-system/templates/actors/parts/subparts/rankdrop.hbs"}}
 
-     <div class="field rank-field">
-  <label>Rank</label>
-  <select name="system.details.rank" data-dtype="String">
-    {{selectOptions config.ranks selected=system.details.rank}}
-  </select>
-</div>
+        <div class="field">
+          <label>Race</label>
+          <input type="text"
+                 name="system.details.race"
+                 value="{{system.details.race}}"
+                 placeholder="Race / Origin" />
+        </div>
 
-
-    {{!-- RACE / BACKGROUND (still text fields until we modularize them) --}}
-    <div class="meta-row flexrow">
-
-      <div class="field">
-        <label>Race</label>
-        <input type="text"
-               name="system.details.race"
-               value="{{system.details.race}}"
-               placeholder="Race / Origin" />
+        <div class="field">
+          <label>Background</label>
+          <input type="text"
+                 name="system.details.background"
+                 value="{{system.details.background}}"
+                 placeholder="Background" />
+        </div>
       </div>
 
-      <div class="field">
-        <label>Background</label>
-        <input type="text"
-               name="system.details.background"
-               value="{{system.details.background}}"
-               placeholder="Background" />
+      {{!-- SPIRIT FIELDS --}}
+      <div class="meta-row flexrow">
+
+        <div class="field">
+          <label>Current Spirit</label>
+          <input type="number"
+                 name="system.details.currentSpirit"
+                 value="{{system.details.currentSpirit}}" />
+        </div>
+
+        <div class="field">
+          <label>Spent Spirit</label>
+          <input type="number"
+                 name="system.details.spentSpirit"
+                 value="{{system.details.spentSpirit}}" />
+        </div>
+
+        <div class="field">
+          <label>Total Spirit</label>
+          <input type="number"
+                 value="{{system.details.totalSpirit}}"
+                 disabled />
+        </div>
       </div>
-    </div>
 
-    {{!-- SPIRIT FIELDS --}}
-    <div class="meta-row flexrow">
+    </div>{{!-- /.header-fields --}}
 
-      <div class="field">
-        <label>Current Spirit</label>
-        <input type="number"
-               name="system.details.currentSpirit"
-               value="{{system.details.currentSpirit}}" />
-      </div>
-
-      <div class="field">
-        <label>Spent Spirit</label>
-        <input type="number"
-               name="system.details.spentSpirit"
-               value="{{system.details.spentSpirit}}" />
-      </div>
-
-      <div class="field">
-        <label>Total Spirit</label>
-        <input type="number"
-               value="{{system.details.totalSpirit}}"
-               disabled />
-      </div>
-    </div>
-
-  </div>
+  </div>{{!-- /.header-main-row --}}
 </header>
-
