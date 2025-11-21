@@ -83,3 +83,9 @@ MarkedConfig.backgrounds = {
   bounty_hunter: "Bounty Hunter",
   explorer:      "Explorer"
 };
+
+// MARKS (for now just Mark of Purpose)
+MarkedConfig.marks = {
+  none: "None",
+  purpose: "Mark of Purpose"
+};
