@@ -3,20 +3,18 @@
 // Single config object for The Marked System
 export const MarkedConfig = {};
 
-// Core attribute groups (you can expand this later if you want)
+// ------------------------------
+// Core Attribute Groups
+// ------------------------------
 MarkedConfig.attributes = {
   body: { label: "Body" },
   mind: { label: "Mind" },
   soul: { label: "Soul" }
 };
 
-// Rank list (Option A)
-// Keys are capitalized so they match your current default "Normal"
-// stored at system.details.rank in template.json
-export const MarkedConfig = {};
-
-export const MarkedConfig = {};
-
+// ------------------------------
+// Rank List
+// ------------------------------
 MarkedConfig.ranks = {
   normal:   { label: "Normal" },
   quartz:   { label: "Quartz" },
@@ -30,8 +28,7 @@ MarkedConfig.ranks = {
   celestite:{ label: "Celestite" }
 };
 
-
-// Later we can add:
-// MarkedConfig.races = { ... }
-// MarkedConfig.backgrounds = { ... }
-// MarkedConfig.marks = { ... }
+// Later additions:
+// MarkedConfig.races = { ... };
+// MarkedConfig.backgrounds = { ... };
+// MarkedConfig.marks = { ... };
