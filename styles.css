@@ -162,3 +162,40 @@
   padding-bottom: 0.2rem;
 }
 
+/* --- STATUS LAYOUT (3 columns like Attributes) --- */
+
+.status-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.status-column h3 {
+  border-bottom: 1px solid #b88;
+  margin-bottom: .5rem;
+  padding-bottom: .2rem;
+  font-size: 1.1em;
+}
+
+.status-block {
+  margin-bottom: .75rem;
+}
+
+.status-field {
+  display: flex;
+  gap: .25rem;
+  align-items: center;
+}
+
+.status-field.triple input {
+  width: 45px;
+}
+
+.status-field input {
+  width: 60px;
+}
+
+.regen-label {
+  opacity: 0.7;
+  font-size: .9em;
+}
