@@ -1,1 +1,9 @@
+{{!-- templates/actors/parts/subparts/clandrop.hbs --}}
+
+<div class="field clan-field race-dependent" data-race="draconian">
+  <label>Clan</label>
+  <select name="system.details.clan" data-dtype="String">
+    {{selectOptions config.draconianClans selected=system.details.clan}}
+  </select>
+</div>
 
