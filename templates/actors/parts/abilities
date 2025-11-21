@@ -1,0 +1,20 @@
+{{!-- templates/actors/parts/abilities.hbs --}}
+
+<section class="abilities-section">
+
+  {{!-- SUB-TABS for Abilities (only Marks for now) --}}
+  <nav class="sub-tabs tabs" data-group="abilities">
+    <a class="item" data-tab="marks">Marks</a>
+  </nav>
+
+  <section class="sub-body">
+    <div class="tab" data-group="abilities" data-tab="marks">
+      <h2>Marks</h2>
+
+      <div class="marks-grid">
+        {{> "systems/the-marked-system/templates/actors/parts/subparts/mopdrop.hbs"}}
+      </div>
+    </div>
+  </section>
+
+</section>
