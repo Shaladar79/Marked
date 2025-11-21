@@ -6,7 +6,7 @@ import { MarkedActorSheet } from "./scripts/actor/MarkedActorSheet.mjs";
 import { MarkedItem } from "./scripts/item/MarkedItem.mjs";
 import { MarkedItemSheet } from "./scripts/item/MarkedItemSheet.mjs";
 
-Hooks.once("init", function () {
+Hooks.once("init", async function () {
   console.log("Marked System | Initializing");
 
   // Expose config namespace
@@ -32,11 +32,12 @@ Hooks.once("init", function () {
   Items.registerSheet("marked", MarkedItemSheet, {
     makeDefault: true
   });
-   // 🔹 PRELOAD PARTIAL TEMPLATES 🔹
+
+  // 🔹 PRELOAD PARTIAL TEMPLATES 🔹
   await loadTemplates([
     "systems/the-marked-system/templates/actors/parts/header.hbs",
     "systems/the-marked-system/templates/actors/parts/attributes.hbs",
     "systems/the-marked-system/templates/actors/parts/status.hbs",
     "systems/the-marked-system/templates/actors/parts/subparts/rankdrop.hbs"
+  ]);
 });
-
