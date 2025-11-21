@@ -26,4 +26,11 @@ export class MarkedActorSheet extends ActorSheet {
 
     return data;
   }
+
+activateListeners(html) {
+    super.activateListeners(html);
+
+    // You may add custom listeners later here
+    // console.log("Sheet listeners active");
+  }
 }
