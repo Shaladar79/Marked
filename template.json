@@ -88,6 +88,12 @@
           }
         }
       }
+    },
+    "pc": {
+      "templates": ["base"]
+    },
+    "npc": {
+      "templates": ["base"]
     }
   },
   "Item": {
@@ -99,8 +105,9 @@
           "quantity": 1
         }
       }
+    },
+    "generic": {
+      "templates": ["base"]
     }
   }
-}
-
 }
