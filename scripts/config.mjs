@@ -15,17 +15,19 @@ MarkedConfig.attributes = {
 // stored at system.details.rank in template.json
 export const MarkedConfig = {};
 
+export const MarkedConfig = {};
+
 MarkedConfig.ranks = {
-  normal: { key: "normal", label: "Normal" },
-  quartz: { key: "quartz", label: "Quartz" },
-  topaz: { key: "topaz", label: "Topaz" },
-  garnet: { key: "garnet", label: "Garnet" },
-  emerald: { key: "emerald", label: "Emerald" },
-  sapphire: { key: "sapphire", label: "Sapphire" },
-  ruby: { key: "ruby", label: "Ruby" },
-  diamond: { key: "diamond", label: "Diamond" },
-  mythrite: { key: "mythrite", label: "Mythrite" },
-  celestite: { key: "celestite", label: "Celestite" }
+  normal:   { label: "Normal" },
+  quartz:   { label: "Quartz" },
+  topaz:    { label: "Topaz" },
+  garnet:   { label: "Garnet" },
+  emerald:  { label: "Emerald" },
+  sapphire: { label: "Sapphire" },
+  ruby:     { label: "Ruby" },
+  diamond:  { label: "Diamond" },
+  mythrite: { label: "Mythrite" },
+  celestite:{ label: "Celestite" }
 };
 
 
