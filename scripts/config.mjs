@@ -99,7 +99,7 @@ MarkedConfig.markOfPurpose = {
 };
 
 //RACE Values
-MarkedConfig.races = {
+MarkedConfig.raceStatus = {
   "Human": {
     status: {
       "vitality.max": 10,
