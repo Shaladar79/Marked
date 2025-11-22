@@ -98,3 +98,149 @@ MarkedConfig.markOfPurpose = {
   assassin:   "Assassin"
 };
 
+//RACE Values
+MarkedConfig.races = {
+  "Human": {
+    status: {
+      "vitality.max": 10,
+      "mana.max": 10,
+      "stamina.max": 10,
+      "defense.value": 0,
+      "reaction.value": 0,
+      "trauma.max": 2,
+      "pace.value": 5,
+      "armor.max": 0,
+      "shielding.value": 0
+    }
+  },
+  "Etherean": {
+    status: {
+      "vitality.max": 8,
+      "mana.max": 12,
+      "stamina.max": 10,
+      "defense.value": 0,
+      "reaction.value": 0,
+      "trauma.max": 2,
+      "pace.value": 6,
+      "armor.max": 0,
+      "shielding.value": 1
+    }
+  },
+  "Mythrian": {
+    status: {
+      "vitality.max": 12,
+      "mana.max": 8,
+      "stamina.max": 12,
+      "defense.value": 0,
+      "reaction.value": 0,
+      "trauma.max": 2,
+      "pace.value": 6,
+      "armor.max": 1,
+      "shielding.value": 0
+    }
+  },
+  "Anthozoan": {
+    status: {
+      "vitality.max": 14,
+      "mana.max": 8,
+      "stamina.max": 10,
+      "defense.value": 1,
+      "reaction.value": 0,
+      "trauma.max": 3,
+      "pace.value": 4,
+      "armor.max": 2,
+      "shielding.value": 0
+    }
+  },
+  "Sylvan": {
+    status: {
+      "vitality.max": 10,
+      "mana.max": 10,
+      "stamina.max": 12,
+      "defense.value": 0,
+      "reaction.value": 0,
+      "trauma.max": 2,
+      "pace.value": 6,
+      "armor.max": 0,
+      "shielding.value": 0
+    }
+  },
+  "Sprite": {
+    status: {
+      "vitality.max": 8,
+      "mana.max": 12,
+      "stamina.max": 10,
+      "defense.value": 0,
+      "reaction.value": 1,
+      "trauma.max": 1,
+      "pace.value": 4,
+      "armor.max": 0,
+      "shielding.value": 1
+    }
+  },
+  "Auramine": {
+    status: {
+      "vitality.max": 9,
+      "mana.max": 13,
+      "stamina.max": 9,
+      "defense.value": 0,
+      "reaction.value": 0,
+      "trauma.max": 2,
+      "pace.value": 6,
+      "armor.max": 0,
+      "shielding.value": 2
+    }
+  },
+  "Draconian": {
+    status: {
+      "vitality.max": 13,
+      "mana.max": 9,
+      "stamina.max": 11,
+      "defense.value": 1,
+      "reaction.value": 0,
+      "trauma.max": 3,
+      "pace.value": 5,
+      "armor.max": 2,
+      "shielding.value": 0
+    }
+  },
+  "Embergiest": {
+    status: {
+      "vitality.max": 9,
+      "mana.max": 13,
+      "stamina.max": 9,
+      "defense.value": 0,
+      "reaction.value": 0,
+      "trauma.max": 2,
+      "pace.value": 5,
+      "armor.max": 0,
+      "shielding.value": 2
+    }
+  },
+  "Earthen": {
+    status: {
+      "vitality.max": 13,
+      "mana.max": 8,
+      "stamina.max": 11,
+      "defense.value": 1,
+      "reaction.value": 0,
+      "trauma.max": 3,
+      "pace.value": 4,
+      "armor.max": 2,
+      "shielding.value": 0
+    }
+  },
+  "Prismatic": {
+    status: {
+      "vitality.max": 10,
+      "mana.max": 12,
+      "stamina.max": 10,
+      "defense.value": 0,
+      "reaction.value": 0,
+      "trauma.max": 2,
+      "pace.value": 5,
+      "armor.max": 0,
+      "shielding.value": 2
+    }
+  }
+};
