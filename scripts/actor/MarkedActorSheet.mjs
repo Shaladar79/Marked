@@ -48,7 +48,7 @@ export class MarkedActorSheet extends ActorSheet {
   getData(options) {
     const context = super.getData(options);
 
-    context.system = context.data.system;
+    context.system = context.data?.system ?? context.system;
     context.config = MarkedConfig;
 
     return context;
