@@ -1,0 +1,36 @@
+{{!-- templates/actors/parts/information.hbs --}}
+
+<section class="info-section">
+
+  <h2>Information</h2>
+
+  <p>This section will display:</p>
+  <ul>
+    <li>Race description</li>
+    <li>Background description</li>
+    <li>Racial bonuses</li>
+    <li>Background bonuses</li>
+    <li>Any automatic adjustments from these choices</li>
+  </ul>
+
+  <hr>
+
+  <h3>Race Description</h3>
+  <div class="info-block">
+    {{#if system.details.race}}
+      {{lookup config.raceDescriptions system.details.race}}
+    {{else}}
+      <em>Select a race to view its description.</em>
+    {{/if}}
+  </div>
+
+  <h3>Background Description</h3>
+  <div class="info-block">
+    {{#if system.details.background}}
+      {{lookup config.backgroundDescriptions system.details.background}}
+    {{else}}
+      <em>Select a background to view its description.</em>
+    {{/if}}
+  </div>
+
+</section>
