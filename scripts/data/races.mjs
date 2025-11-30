@@ -5,25 +5,52 @@
 //   (e.g. "anthozoan", "human", "draconian", etc.)
 
 export const MarkedRaceDescriptions = {
-  anthozoan: {
-    name: "Anthozoan",
-    description: `
-<strong>Physical Attributes</strong><br>
-Anthozoans are not just remarkable for their stunning appearance; their physical form is a marvel of natural mimicry and adaptation.
-Their skin is tough yet flexible, resembling the calcium carbonate structures of coral, providing both protection and a canvas for the vibrant hues
-and patterns that signal mood, health, or even social status. These patterns can range from the bright, warning colors of toxic corals to the subtle,
-soothing shades of deep-water species.<br><br>
-Their "hair" isn't merely decorative; it serves as a sensory organ, detecting changes in water current, temperature, and even the electrical fields
-of nearby creatures, making them exceptionally aware of their surroundings.<br><br>
+ anthozoan: {
+  label: "Anthozoan",
+  img: "systems/the-marked-system/assets/races/anthozoan.webp",
+  description: `
+<h2>Anthozoan</h2>
 
-<strong>Culture and Society</strong><br>
-Anthozoans have a deeply communal and cooperative society, mirroring the symbiotic relationships found within coral reefs. Their communities, known as
-"groves," are built around the core principles of mutual aid and environmental stewardship. Art, architecture, and daily practices are all influenced
-by their connection to the sea, with structures that are grown from living coral and designed to blend seamlessly into the marine landscape.<br><br>
-Music and storytelling play a vital role in their culture, with ancient tales and songs passed down through generations, telling of the ocean's mysteries
-and the history of their people.
-`
-  },
+<h3>Physical Attributes</h3>
+<p>
+Anthozoans are living embodiments of oceanic coral—beautiful, resilient, and deeply 
+connected to the rhythms of the sea. Their skin resembles the flexible yet durable 
+structure of coral polyps, forming natural patterns and ridges that can range from soft 
+pastels to the vibrant warning colors of toxic reef species.
+</p>
+
+<p>
+Their coloration is not random; the hues that flow across their surface reflect emotional 
+states, environmental changes, or even social signals within their communities. The “hair” 
+of an Anthozoan is not hair at all, but a mass of sensory tendrils capable of detecting 
+currents, temperature shifts, and even faint electrical fields produced by nearby creatures. 
+These tendrils move like strands of drifting seaweed and offer Anthozoans unparalleled 
+awareness beneath the waves.
+</p>
+
+<h3>Culture & Society</h3>
+<p>
+Anthozoan society is built around the concept of harmony, both environmentally and socially. 
+Their communities—called <strong>Groves</strong>—are made up of individuals who grow, shape, 
+and maintain coral structures as naturally as other races build cities.
+</p>
+
+<p>
+Every Anthozoan contributes to the ecosystem they inhabit, mirroring the intricate symbiosis 
+of real coral reefs. Art, music, and storytelling reflect oceanic themes, with tales passed 
+down through mesmerizing bioluminescent displays and rhythmic, flowing songs that mimic 
+the natural movement of underwater life.
+</p>
+
+<p>
+Their architecture is grown rather than built, shaped from living coral formations that 
+blend seamlessly with the surrounding reef. They value cooperation, balance, and 
+environmental stewardship, believing that the health of the sea and the health of 
+their people are inseparable.
+</p>
+    `
+},
+
 
   // 🔹 Placeholders for other races you’ll add later:
   human:       { name: "Human",       description: "" },
@@ -74,7 +101,6 @@ is both a work of art and a conduit of their connection to the celestial realms.
 </p>
     `
   },
-};
 
   draconian:   { name: "Draconian",   description: "" },
   embergiest:  { name: "Embergiest",  description: "" },
