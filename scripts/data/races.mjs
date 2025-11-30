@@ -31,7 +31,51 @@ and the history of their people.
   mythrian:    { name: "Mythrian",    description: "" },
   sylvan:      { name: "Sylvan",      description: "" },
   sprite:      { name: "Sprite",      description: "" },
-  auramine:    { name: "Auramine",    description: "" },
+  auramine: {
+    label: "Auramine",
+    img: "systems/the-marked-system/assets/races/auramine.webp",
+    description: `
+<h2>Auramine</h2>
+
+<h3>Appearance</h3>
+<p>
+The Aurumine are a majestic and enigmatic race whose appearance mirrors the very essence 
+of the cosmos. Their skin carries a natural metallic sheen, ranging from pale, starlit 
+alabaster to deep, rich bronzes and obsidians. Under sunlight, their skin reflects a soft 
+celestial glow; under moonlight, they gleam like figures carved from the night sky itself.
+</p>
+
+<p>
+Their hair flows like liquid metal—golden, silver, coppery, or shimmering blends that ripple 
+with reflected light. At night, their hair takes on an ethereal luminescence, faintly 
+mirroring constellations or drifting in gleams like falling star-dust.
+Their eyes are deep wells of cosmic color, swirling with metallic depth, 
+as if containing their own starlight.
+</p>
+
+<h3>Culture & Society</h3>
+<p>
+Aurumine culture is built on the foundations of arcane scholarship and celestial reverence. 
+They believe their souls are tied to the cosmic order, and thus they strive to embody harmony, 
+discipline, and an unending pursuit of knowledge.
+</p>
+
+<p>
+Their cities and sanctuaries are architectural marvels aligned to celestial bodies—places 
+where starlight is captured, reflected, and channeled into ritual magic. Leaders among the 
+Aurumine are chosen not by birthright but by wisdom and mastery over cosmic forces. 
+Many Aurumine dedicate themselves to artistry, crafting tools and relics inscribed 
+with intricate glyphs and symbols that channel astral and arcane energies.
+</p>
+
+<p>
+To the Aurumine, beauty and purpose are inseparable. Every craft, structure, and ritual 
+is both a work of art and a conduit of their connection to the celestial realms.
+</p>
+    `
+  },
+};
+
   draconian:   { name: "Draconian",   description: "" },
   embergiest:  { name: "Embergiest",  description: "" },
   earthen:     { name: "Earthen",     description: "" },
