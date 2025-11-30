@@ -9,15 +9,23 @@
   {{!-- =======================
        RACE INFORMATION
        ======================= --}}
-  <h3>Race Description</h3>
-  <div class="info-block">
-    {{#if system.details.race}}
-      {{!-- system.details.race holds the *key* (e.g. "draconian") --}}
-      {{lookup config.raceDescriptions system.details.race}}
-    {{else}}
-      <em>Select a race to view its description.</em>
-    {{/if}}
-  </div>
+ <h3>Race Description</h3>
+<div class="info-block">
+  {{#if system.details.race}}
+    {{!-- Look up race data by key (e.g. "anthozoan") --}}
+    {{#with (lookup config.raceData system.details.race)}}
+      {{!-- If this race entry is an object with a "description" field, use that --}}
+      {{#if description}}
+        {{{description}}}
+      {{else}}
+        {{!-- Otherwise it might just be a simple string, so print it directly --}}
+        {{this}}
+      {{/if}}
+    {{/with}}
+  {{else}}
+    <em>Select a race to view its description.</em>
+  {{/if}}
+</div>
 
   <hr>
 
