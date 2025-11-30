@@ -52,6 +52,7 @@ Hooks.once("setup", async function () {
   "systems/the-marked-system/templates/actors/parts/subparts/tribedrop.hbs",
   "systems/the-marked-system/templates/actors/parts/subparts/clandrop.hbs",
    "systems/the-marked-system/templates/actors/parts/subparts/backdrop.hbs",
-   "systems/the-marked-system/templates/actors/parts/subparts/mopdrop.hbs"
+   "systems/the-marked-system/templates/actors/parts/subparts/mopdrop.hbs",
+   "systems/the-marked-system/templates/actors/parts/information.hbs"
 ]);
 });
