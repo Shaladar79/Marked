@@ -53,7 +53,56 @@ their people are inseparable.
 
 
   // 🔹 Placeholders for other races you’ll add later:
-  human:       { name: "Human",       description: "" },
+  human: {
+  label: "Human",
+  img: "systems/the-marked-system/assets/races/human.webp",
+  description: `
+<h2>Human</h2>
+
+<h3>Appearance</h3>
+<p>
+Humans in Mezoria display an astonishing breadth of physical diversity, unmatched by any
+other race. Their features vary widely based on lineage, geography, climate, and culture.
+Some are <strong>short and stocky</strong>, shaped by labor or harsh environments. Others grow
+<strong>tall and lean</strong>, formed by generations of athleticism or nomadic life. Body shape ranges
+from <strong>gaunt and underfed</strong> to <strong>robustly muscular</strong> or even <strong>excessively corpulent</strong>.
+</p>
+
+<p>
+Skin tones span the natural spectrum—from alabaster to deep umber—while hair textures
+range from pin-straight to thick coils, in colors from pale flaxen to fiery red to pitch black.
+Eye colors are equally varied: browns, greens, blues, hazels, grays, and rare striking anomalies
+such as gold or violet.
+</p>
+
+<p>
+This physical variation is not merely aesthetic; it reflects humanity’s greatest strength:
+<strong>adaptability</strong>. Humans thrive in nearly every environment of Mezoria, from frozen tundras
+and rolling plains to volcanic islands and dense forests.
+</p>
+
+<h3>Religion and Beliefs</h3>
+<p>
+No race in Mezoria is as deeply entwined with spirituality as humans. They cling fervently
+to the worship of the <strong>Aspects</strong>—divine embodiments of fundamental principles such as
+Wisdom, War, Mercy, Fate, Shadow, and countless others. Humans believe that the Aspects
+shape the course of their lives, guide their destinies, and watch over the balance of the world.
+</p>
+
+<p>
+Human religious practice is rich and varied. Shrines appear in nearly every settlement; temples
+stand as centers of community life. Rituals can be elaborate ceremonies led by priests or simple
+daily gestures of gratitude. Pilgrimages, offerings, omens, prayers, and festivals mark the human
+calendar, reinforcing their reliance on divine insight in a world filled with uncertainty.
+</p>
+
+<p>
+Even humans who reject formal worship often carry amulets or mutter prayers “just in case.”
+Faith—whether devoted or doubtful—is woven into the core of the human experience.
+</p>
+    `
+},
+
   etherean:    { name: "Etherean",    description: "" },
   mythrian:    { name: "Mythrian",    description: "" },
   sylvan:      { name: "Sylvan",      description: "" },
