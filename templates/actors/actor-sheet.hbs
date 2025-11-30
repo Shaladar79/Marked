@@ -1,4 +1,4 @@
-<form class="marked-sheet" autocomplete="off">
+<form class="marked sheet actor" autocomplete="off">
 
   {{!-- HEADER --}}
   {{> "systems/the-marked-system/templates/actors/parts/header.hbs"}}
@@ -34,8 +34,10 @@
 
     </div>
 
-     {{!-- ABILITIES (no nested tabs yet, just Marks) --}}
-    <div class="tab" data-tab="abilities">
+    {{!-- =========================
+         ABILITIES TAB
+         ========================= --}}
+    <div class="tab" data-group="primary" data-tab="abilities">
       {{> "systems/the-marked-system/templates/actors/parts/abilities.hbs"}}
     </div>
 
