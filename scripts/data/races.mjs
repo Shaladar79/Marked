@@ -187,7 +187,59 @@ their wisdom shapes the political, martial, and cultural fabric of the world.
     `
 },
 
-  embergiest:  { name: "Embergiest",  description: "" },
+ embergiest: {
+  label: "Embergeist",
+  img: "systems/the-marked-system/assets/races/embergeist.webp",
+  description: `
+<h2>Embergeist</h2>
+
+<h3>Origins and Ancestry</h3>
+<p>
+The Embergeist are a race born from the primordial union of <strong>earth and fire</strong>.
+Their arrival in Mezoria began thousands of years ago, when an <strong>Astral Gate</strong>
+tore open between realms and deposited them across the land. Though their first bodies 
+were shaped by elemental power, the Embergeist long ago adapted and evolved into a 
+fully self-sustaining people, carrying within them the legacy of the volatile forces 
+that forged their ancestors.
+</p>
+
+<h3>Physical Characteristics</h3>
+<p>
+An Embergeist's appearance is a living embodiment of molten creation. Their skin resembles 
+<strong>stone, obsidian, or cooled lava</strong>, but beneath the surface burns a visible inner flame. 
+Many Embergeist have cracks or channels in their skin that glow with 
+<strong>fiery light</strong>, shifting from ember-orange to brilliant magma-white depending on emotion or health.  
+Their eyes simmer like smoldering coals, casting a warm, almost hypnotic glow in dim spaces.
+</p>
+
+<p>
+Despite their rough exterior, their movements carry surprising grace, the heat within 
+their bodies granting them fluidity and bursts of explosive physical force.
+</p>
+
+<h3>Society and Culture</h3>
+<p>
+The Embergeist build their lives deep beneath Mezoria—in colossal underground cities 
+carved into mountain roots, volcanic caverns, and subterranean magma chambers.  
+These cities are illuminated by natural lava flows, geothermal crystal formations, 
+and the inner radiance of the Embergeist themselves.
+</p>
+
+<p>
+Their culture venerates <strong>strength, craftsmanship, and endurance</strong>. Forges are sacred 
+spaces where stone and flame are shaped in ritual harmony. Embergeist artisans are 
+renowned across Mezoria for their unmatched mastery of <strong>metalwork, smithing, 
+geoforging</strong>, and the creation of magical equipment infused with elemental fire.
+</p>
+
+<p>
+Among their people, the ability to work seamlessly with both stone and flame is considered 
+a mark of maturity and spiritual clarity. As such, Embergeist societies often blend 
+artisanship with philosophy, creating a culture where creation and identity are deeply intertwined.
+</p>
+    `
+},
+
   earthen:     { name: "Earthen",     description: "" },
   prismatic:   { name: "Prismatic",   description: "" }
 };
