@@ -1,10 +1,12 @@
 // scripts/config.mjs
 import { MarkedRaceDescriptions } from "./data/races.mjs";
 
-
 export const MarkedConfig = {};
 
+// Make race info available on config
 MarkedConfig.raceData = MarkedRaceDescriptions;
+// Alias used by information.hbs
+MarkedConfig.raceDescriptions = MarkedRaceDescriptions;
 
 // -------------------------------------
 // ATTRIBUTE CATEGORIES
@@ -58,8 +60,7 @@ MarkedConfig.mythrianTribes = {
 };
 
 // -------------------------------------
-// DRACONIAN CLANS (placeholder names)
-// You can replace/expand these anytime.
+// DRACONIAN CLANS
 // -------------------------------------
 MarkedConfig.draconianClans = {
   flame: "Flame Clan",
@@ -82,20 +83,20 @@ MarkedConfig.backgroundTypes = {
 // -------------------------------------
 MarkedConfig.backgroundsByType = {
   common: {
-    farmer:        "Farmer",
-    hunter:        "Hunter",
-    fisher:        "Fisher",
-    laborer:       "Laborer",
-    merchant:      "Merchant",
-    shepherd:      "Shepherd",
-    gravedigger:   "Gravedigger",
-    stable_hand:   "Stable Hand",
-    messenger:     "Messenger",
-    woodcutter:    "Woodcutter",
-    milkmaid:      "Milkmaid / Dairyman",
-    field_hand:    "Field Hand",
-    field_guide:   "Field Guide",
-    cook:          "Cook"
+    farmer:      "Farmer",
+    hunter:      "Hunter",
+    fisher:      "Fisher",
+    laborer:     "Laborer",
+    merchant:    "Merchant",
+    shepherd:    "Shepherd",
+    gravedigger: "Gravedigger",
+    stable_hand: "Stable Hand",
+    messenger:   "Messenger",
+    woodcutter:  "Woodcutter",
+    milkmaid:    "Milkmaid / Dairyman",
+    field_hand:  "Field Hand",
+    field_guide: "Field Guide",
+    cook:        "Cook"
   },
 
   skilled: {
@@ -123,7 +124,9 @@ MarkedConfig.backgroundsByType = {
     painter:         "Painter",
     ropemaker:       "Ropemaker",
     armorer:         "Armorer",
-    perfumer:        "Perfumer"
+    perfumer:        "Perfumer",
+    // Optional second “Cook” flavor
+    cook_skilled:    "Cook (Skilled)"
   },
 
   street: {
@@ -143,115 +146,113 @@ MarkedConfig.backgroundsByType = {
   },
 
   social: {
-    noble_courtier:        "Noble Courtier",
-    temple_acolyte:        "Temple Acolyte",
-    clan_heir:             "Clan Heir",
-    diplomatic_envoy:      "Diplomatic Envoy",
-    wandering_pilgrim:     "Wandering Pilgrim",
-    tribal_nomad:          "Tribal Nomad",
-    scholars_ward:         "Scholar’s Ward",
-    exiled_bloodline:      "Exiled Bloodline",
-    cultural_artisan:      "Cultural Artisan",
-    temple_foundling:      "Temple Foundling",
-    guildborn:             "Guildborn",
-    cult_survivor:         "Cult Survivor",
-    diplomatic_hostage:    "Diplomatic Hostage",
-    festival_child:        "Festival Child",
-    marked_prophecy:       "Marked by Prophecy",
-    monastic_disciple:     "Monastic Disciple",
-    political_dissident:   "Political Dissident",
-    archivists_kin:        "Archivist’s Kin",
-    hearth_storykeeper:    "Hearth-Bound Storykeeper",
-    oath_retainer:         "Oath-Bound Retainer"
+    noble_courtier:      "Noble Courtier",
+    temple_acolyte:      "Temple Acolyte",
+    clan_heir:           "Clan Heir",
+    diplomatic_envoy:    "Diplomatic Envoy",
+    wandering_pilgrim:   "Wandering Pilgrim",
+    tribal_nomad:        "Tribal Nomad",
+    scholars_ward:       "Scholar’s Ward",
+    exiled_bloodline:    "Exiled Bloodline",
+    cultural_artisan:    "Cultural Artisan",
+    temple_foundling:    "Temple Foundling",
+    guildborn:           "Guildborn",
+    cult_survivor:       "Cult Survivor",
+    diplomatic_hostage:  "Diplomatic Hostage",
+    festival_child:      "Festival Child",
+    marked_prophecy:     "Marked by Prophecy",
+    monastic_disciple:   "Monastic Disciple",
+    political_dissident: "Political Dissident",
+    archivists_kin:      "Archivist’s Kin",
+    hearth_storykeeper:  "Hearth-Bound Storykeeper",
+    oath_retainer:       "Oath-Bound Retainer"
   }
 };
 
 // -------------------------------------
-// BACKGROUND DESCRIPTIONS (Common Professions)
-// Not used in the sheet yet, but ready for future UI
+// BACKGROUND DESCRIPTIONS
+// (keys should match backgroundsByType where possible)
 // -------------------------------------
 MarkedConfig.backgroundDescriptions = {
-  farmer: "Grew up working the land with patience and endurance.",
-  hunter: "Learned to track, stalk, and strike in the wilds.",
-  fisher: "Spent days by water, mastering rhythm and patience.",
-  laborer: "Built strength through long, grueling physical work.",
-  merchant: "Assisted with trade, haggling, and handling goods.",
-  shepherd: "Watched over herds in solitude and open terrain.",
+  farmer:      "Grew up working the land with patience and endurance.",
+  hunter:      "Learned to track, stalk, and strike in the wilds.",
+  fisher:      "Spent days by water, mastering rhythm and patience.",
+  laborer:     "Built strength through long, grueling physical work.",
+  merchant:    "Assisted with trade, haggling, and handling goods.",
+  shepherd:    "Watched over herds in solitude and open terrain.",
   gravedigger: "Performed the quiet labor of burying the dead.",
   stable_hand: "Cared for mounts and beasts with steady hands.",
-  messenger: "Ran routes across dangerous roads without fail.",
-  woodcutter: "Harvested timber with strength and precision.",
-  milkmaid_dairyman: "Handled livestock and crafted dairy goods.",
-  field_hand: "Worked another’s land for food or coin.",
-  kitchen_worker: "Scrubbed and served in hot, noisy kitchens.",
+  messenger:   "Ran routes across dangerous roads without fail.",
+  woodcutter:  "Harvested timber with strength and precision.",
+  milkmaid:    "Handled livestock and crafted dairy goods.",
+  field_hand:  "Worked another’s land for food or coin.",
   field_guide: "Led travelers through forests, hills, and hazards.",
-  cook: "Fed others with skill, speed, and simple magic.",
-  "blacksmiths_apprentice": "Forged tools and weapons with fire and muscle.",
-  "herbalist": "Knew which plants healed, poisoned, or soothed.",
-  "scribe": "Copied and recorded with a practiced, steady hand.",
-  "tanner": "Prepared hides through pungent, methodical work.",
-  "glassblower": "Shaped molten art with breath and precision.",
-  "weaver": "Spun thread and patterns with care and patience.",
-  "potter": "Shaped clay into vessels, both fine and common.",
-  "chandler": "Crafted candles and learned their chemistry.",
-  "mason": "Carved stone and raised structures with grit.",
-  "bowyer_fletcher": "Built bows and arrows with balanced skill.",
-  "brewer": "Brewed spirits and ales with craft and care.",
-  "tailor": "Stitched garments and shaped fashions.",
-  "shipwright": "Built and repaired vessels strong enough for the sea.",
-  "jeweler": "Cut stones and crafted delicate ornamentation.",
-  "carpenter": "Shaped wood into homes, carts, and keepsakes.",
-  "calligrapher": "Wrote beautifully and knew the weight of ink.",
-  "miner": "Delved deep for ore, stone, and risk.",
-  "tinker": "Fixed, built, and modified with curious hands.",
-  "butcher": "Cleanly carved flesh and knew meat well.",
-  "cobbler": "Made and repaired shoes for every step of life.",
-  "bookbinder": "Bound words and paper into lasting volumes.",
-  "painter": "Captured life and memory in color and canvas.",
-  "ropemaker": "Twisted fibers into life-saving cords and knots.",
-  "armorer": "Crafted defense from metal, leather, and will.",
-  "perfumer": "Blended oils and scents into memory and mood.",
-  "cook_skilled": "Fed bellies and souls with crafted meals.,
-  "noble_courtier": "Raised in privilege, trained in etiquette and subtlety.",
-  "temple_acolyte": "Served in sacred spaces, learning faith and ritual.",
-  "clan_heir": "Born to leadership with duties, pride, and expectation.",
-  "diplomatic_envoy": "Traveled as a speaker of peace, trade, or threat.",
-  "wandering_pilgrim": "Walked the land in devotion, reflection, or penance.",
-  "tribal_nomad": "Grew up with the wind, fire, and path underfoot.",
-  "scholars_ward": "Raised among scrolls, scholars, and quiet discipline.",
-  "exiled_bloodline": "Cast out from legacy, but not from destiny.",
-  "cultural_artisan": "Preserved traditions through craft and performance.",
-  "temple_foundling": "Orphaned and raised in the care of divine orders.",
-  "guildborn": "Raised in a powerful trade guild with deep loyalties.",
-  "cult_survivor": "Escaped from dangerous dogma, but not its scars.",
-  "diplomatic_hostage": "Lived among strangers, taught to survive by grace.",
-  "festival_child": "Born during sacred rites, raised in joy and spectacle.",
-  "marked_by_prophecy": "Branded by fate—celebrated or feared.",
-  "monastic_disciple": "Trained in discipline, meditation, and martial forms.",
-  "political_dissident": "Raised to speak truth against power—at a cost.",
-  "archivists_kin": "Lived in halls of memory, trained in preservation.",
-  "hearth_bound_storykeeper": "Held your people’s legends and history.",
-  "oath_bound_retainer": "Swore to serve one house or cause without fail.",
-  "urchin": "Survived alone in alleys and rooftops with sharp instincts.",
-  "beggar": "Lived off scraps and people’s pity with street-smarts.",
-  "street_performer": "Entertained for coin with charm and flair.",
-  "drudge": "Did thankless, dirty work while staying invisible.",
-  "pickpocket": "Took what you needed without being caught.",
-  "lookout": "Kept watch for trouble, escape, or opportunity.",
-  "runner": "Delivered messages or goods quickly—legal or not.",
-  "fence": "Traded in stolen goods and quiet connections.",
-  "rat_catcher": "Hunted vermin in sewers and dark places.",
-  "dockhand": "Hauled crates, tied lines, and learned who to avoid.",
-  "scavenger": "Found value in others’ trash or misfortune.",
-  "alley_healer": "Tended wounds with scraps, skill, and hope.",
-  "street_preacher": "Shouted truth or madness to anyone who’d listen."
+  cook:        "Fed others with skill, speed, and simple magic.",
 
-});
+  blacksmith_app:  "Forged tools and weapons with fire and muscle.",
+  herbalist:       "Knew which plants healed, poisoned, or soothed.",
+  scribe:          "Copied and recorded with a practiced, steady hand.",
+  tanner:          "Prepared hides through pungent, methodical work.",
+  glassblower:     "Shaped molten art with breath and precision.",
+  weaver:          "Spun thread and patterns with care and patience.",
+  potter:          "Shaped clay into vessels, both fine and common.",
+  chandler:        "Crafted candles and learned their chemistry.",
+  mason:           "Carved stone and raised structures with grit.",
+  bowyer_fletcher: "Built bows and arrows with balanced skill.",
+  brewer:          "Brewed spirits and ales with craft and care.",
+  tailor:          "Stitched garments and shaped fashions.",
+  shipwright:      "Built and repaired vessels strong enough for the sea.",
+  jeweler:         "Cut stones and crafted delicate ornamentation.",
+  carpenter:       "Shaped wood into homes, carts, and keepsakes.",
+  calligrapher:    "Wrote beautifully and knew the weight of ink.",
+  miner:           "Delved deep for ore, stone, and risk.",
+  tinker:          "Fixed, built, and modified with curious hands.",
+  butcher:         "Cleanly carved flesh and knew meat well.",
+  cobbler:         "Made and repaired shoes for every step of life.",
+  bookbinder:      "Bound words and paper into lasting volumes.",
+  painter:         "Captured life and memory in color and canvas.",
+  ropemaker:       "Twisted fibers into life-saving cords and knots.",
+  armorer:         "Crafted defense from metal, leather, and will.",
+  perfumer:        "Blended oils and scents into memory and mood.",
+  cook_skilled:    "Fed bellies and souls with crafted meals.",
 
+  noble_courtier:      "Raised in privilege, trained in etiquette and subtlety.",
+  temple_acolyte:      "Served in sacred spaces, learning faith and ritual.",
+  clan_heir:           "Born to leadership with duties, pride, and expectation.",
+  diplomatic_envoy:    "Traveled as a speaker of peace, trade, or threat.",
+  wandering_pilgrim:   "Walked the land in devotion, reflection, or penance.",
+  tribal_nomad:        "Grew up with the wind, fire, and path underfoot.",
+  scholars_ward:       "Raised among scrolls, scholars, and quiet discipline.",
+  exiled_bloodline:    "Cast out from legacy, but not from destiny.",
+  cultural_artisan:    "Preserved traditions through craft and performance.",
+  temple_foundling:    "Orphaned and raised in the care of divine orders.",
+  guildborn:           "Raised in a powerful trade guild with deep loyalties.",
+  cult_survivor:       "Escaped from dangerous dogma, but not its scars.",
+  diplomatic_hostage:  "Lived among strangers, taught to survive by grace.",
+  festival_child:      "Born during sacred rites, raised in joy and spectacle.",
+  marked_prophecy:     "Branded by fate—celebrated or feared.",
+  monastic_disciple:   "Trained in discipline, meditation, and martial forms.",
+  political_dissident: "Raised to speak truth against power—at a cost.",
+  archivists_kin:      "Lived in halls of memory, trained in preservation.",
+  hearth_storykeeper:  "Held your people’s legends and history.",
+  oath_retainer:       "Swore to serve one house or cause without fail.",
+
+  urchin:          "Survived alone in alleys and rooftops with sharp instincts.",
+  beggar:          "Lived off scraps and people’s pity with street-smarts.",
+  street_perf:     "Entertained for coin with charm and flair.",
+  drudge:          "Did thankless, dirty work while staying invisible.",
+  pickpocket:      "Took what you needed without being caught.",
+  lookout:         "Kept watch for trouble, escape, or opportunity.",
+  runner:          "Delivered messages or goods quickly—legal or not.",
+  fence:           "Traded in stolen goods and quiet connections.",
+  rat_catcher:     "Hunted vermin in sewers and dark places.",
+  dockhand:        "Hauled crates, tied lines, and learned who to avoid.",
+  scavenger:       "Found value in others’ trash or misfortune.",
+  alley_healer:    "Tended wounds with scraps, skill, and hope.",
+  street_preacher: "Shouted truth or madness to anyone who’d listen."
 };
 
-
-// Optional: flat map of all backgrounds, if anything still uses it
+// Optional: flat map of all backgrounds
 MarkedConfig.backgrounds = {
   ...MarkedConfig.backgroundsByType.common,
   ...MarkedConfig.backgroundsByType.skilled,
@@ -259,8 +260,9 @@ MarkedConfig.backgrounds = {
   ...MarkedConfig.backgroundsByType.social
 };
 
-
+// -------------------------------------
 // Marks of Purpose
+// -------------------------------------
 MarkedConfig.markOfPurpose = {
   none:       "No Mark",     // default placeholder
   alchemist:  "Alchemist",
@@ -285,9 +287,8 @@ MarkedConfig.markOfPurpose = {
   warden:     "Warden"
 };
 
-// Marks of Purpose descriptions
 MarkedConfig.markOfPurposeDescriptions = {
-  none: "This character has not yet received a Mark of Purpose.",
+  none:       "This character has not yet received a Mark of Purpose.",
   striker:    "Front-line damage dealer; decisive finishers.",
   defender:   "Line-holder; blocks lanes and peels pressure.",
   charlatan:  "Deception and ambush; trick-play specialist.",
@@ -310,9 +311,11 @@ MarkedConfig.markOfPurposeDescriptions = {
   psion:      "Mind-force and perception edge; subtle control."
 };
 
-//RACE Values
+// -------------------------------------
+// Race status & attribute modifiers
+// -------------------------------------
 MarkedConfig.raceStatus = {
-  "Human": {
+  Human: {
     status: {
       "vitality.max": 10,
       "mana.max": 10,
@@ -325,7 +328,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 0
     }
   },
-  "Etherean": {
+  Etherean: {
     status: {
       "vitality.max": 8,
       "mana.max": 12,
@@ -338,7 +341,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 1
     }
   },
-  "Mythrian": {
+  Mythrian: {
     status: {
       "vitality.max": 12,
       "mana.max": 8,
@@ -351,7 +354,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 0
     }
   },
-  "Anthozoan": {
+  Anthozoan: {
     status: {
       "vitality.max": 14,
       "mana.max": 8,
@@ -364,7 +367,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 0
     }
   },
-  "Sylvan": {
+  Sylvan: {
     status: {
       "vitality.max": 10,
       "mana.max": 10,
@@ -377,7 +380,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 0
     }
   },
-  "Sprite": {
+  Sprite: {
     status: {
       "vitality.max": 8,
       "mana.max": 12,
@@ -390,7 +393,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 1
     }
   },
-  "Auramine": {
+  Auramine: {
     status: {
       "vitality.max": 9,
       "mana.max": 13,
@@ -403,7 +406,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 2
     }
   },
-  "Draconian": {
+  Draconian: {
     status: {
       "vitality.max": 13,
       "mana.max": 9,
@@ -416,7 +419,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 0
     }
   },
-  "Embergiest": {
+  Embergiest: {
     status: {
       "vitality.max": 9,
       "mana.max": 13,
@@ -429,7 +432,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 2
     }
   },
-  "Earthen": {
+  Earthen: {
     status: {
       "vitality.max": 13,
       "mana.max": 8,
@@ -442,7 +445,7 @@ MarkedConfig.raceStatus = {
       "shielding.value": 0
     }
   },
-  "Prismatic": {
+  Prismatic: {
     status: {
       "vitality.max": 10,
       "mana.max": 12,
@@ -457,10 +460,8 @@ MarkedConfig.raceStatus = {
   }
 };
 
-// RACE Attribute Modifiers
-// These are % bonuses applied on top of the character's assigned sub-attributes.
 MarkedConfig.raceAttributes = {
-  "Human": {
+  Human: {
     "body.might": 2,
     "body.swiftness": 2,
     "mind.insight": 2,
@@ -468,62 +469,62 @@ MarkedConfig.raceAttributes = {
     "soul.presence": 2,
     "soul.resolve": 2
   },
-  "Etherean": {
+  Etherean: {
     "mind.insight": 2,
     "mind.focus": 2,
     "soul.grace": 4,
     "soul.resonance": 4
   },
-  "Mythrian": {
+  Mythrian: {
     "body.might": 4,
     "body.swiftness": 2,
     "body.endurance": 4,
     "mind.insight": 2
   },
-  "Anthozoan": {
+  Anthozoan: {
     "body.might": 2,
     "body.fortitude": 4,
     "body.endurance": 4,
     "soul.resolve": 2
   },
-  "Sylvan": {
+  Sylvan: {
     "body.swiftness": 4,
     "body.endurance": 2,
     "mind.insight": 2,
     "soul.grace": 4
   },
-  "Sprite": {
+  Sprite: {
     "body.swiftness": 4,
     "mind.insight": 2,
     "mind.quickness": 2,
     "soul.grace": 4
   },
-  "Auramine": {
+  Auramine: {
     "mind.insight": 2,
     "soul.presence": 4,
     "soul.grace": 2,
     "soul.resonance": 4
   },
-  "Draconian": {
+  Draconian: {
     "body.might": 4,
     "body.fortitude": 4,
     "body.endurance": 2,
     "soul.presence": 2
   },
-  "Embergiest": {
+  Embergiest: {
     "body.endurance": 2,
     "mind.focus": 2,
     "soul.presence": 2,
     "soul.resolve": 4,
     "soul.resonance": 2
   },
-  "Earthen": {
+  Earthen: {
     "body.might": 2,
     "body.fortitude": 4,
     "body.endurance": 4,
     "mind.willpower": 2
   },
-  "Prismatic": {
+  Prismatic: {
     "mind.focus": 4,
     "mind.quickness": 2,
     "soul.resonance": 4,
@@ -534,13 +535,7 @@ MarkedConfig.raceAttributes = {
 // ------------------------------------------------------
 // Legacy aliases so old templates keep working
 // ------------------------------------------------------
-
-// Old names used in templates: config.tribes and config.clans
-MarkedConfig.tribes = MarkedConfig.mythrianTribes;
-MarkedConfig.clans  = MarkedConfig.draconianClans;
-
-// Old names used in templates for Marks of Purpose
-// (covers markOfPurpose, marksOfPurpose, marksPurpose)
+MarkedConfig.tribes        = MarkedConfig.mythrianTribes;
+MarkedConfig.clans         = MarkedConfig.draconianClans;
 MarkedConfig.marksOfPurpose = MarkedConfig.markOfPurpose;
 MarkedConfig.marksPurpose   = MarkedConfig.markOfPurpose;
-
