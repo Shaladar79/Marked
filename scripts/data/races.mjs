@@ -104,7 +104,110 @@ Faith—whether devoted or doubtful—is woven into the core of the human experi
 },
 
   etherean:    { name: "Etherean",    description: "" },
-  mythrian:    { name: "Mythrian",    description: "" },
+  mythrian: {
+  label: "Mythrian",
+  img: "systems/the-marked-system/assets/races/mythrian.webp",
+  description: `
+<h2>Mythrian</h2>
+
+<h3>Appearance</h3>
+<p>
+The Mythrians are a powerful fusion of humanoid form and predatory instinct. Their 
+physiology reflects their ancestral ties to Mezoria’s apex beasts—wolves, lions, 
+eagles, sharks, serpents, and countless others. Each Mythrian bears some combination 
+of animalistic traits: fur, feathers, scales, bestial heads, enhanced senses, or 
+natural weaponry such as claws and fangs.
+</p>
+
+<p>
+Their bodies are robust and athletic, standing between <strong>6–8 feet tall</strong>, shaped for 
+speed, strength, and survival. Every Mythrian carries the unmistakable aura of a 
+creature born to hunt.
+</p>
+
+<h3>Sensory & Physical Abilities</h3>
+<p>
+Mythrians inherit the <strong>heightened senses</strong> and reflexes of the predators whose traits 
+they share. Depending on their lineage, they may possess:
+</p>
+
+<ul>
+  <li>exceptional vision or night sight</li>
+  <li>acute hearing and spatial awareness</li>
+  <li>a refined sense of smell</li>
+  <li>powerful leaps, swipes, or quick bursts of speed</li>
+  <li>natural weapons (claws, fangs, talons)</li>
+</ul>
+
+<p>
+These abilities make Mythrians unmatched as <strong>hunters, scouts, and trackers</strong>.
+</p>
+
+<h3>Tribes & Clans</h3>
+<p>
+Mythrian society is divided into <strong>tribes</strong> each united by a 
+common predatory heritage. These groups shape a Mythrian’s traditions, fighting 
+styles, and social expectations.
+</p>
+
+<p>
+The cultural, magical, and ancestral details of each tribe are distinct, but those 
+specifics are preserved and taught internally. Outsiders rarely learn more than the 
+tribe's name or reputation. A full breakdown of individual clans will be handled 
+separately in their own dedicated section.
+</p>
+
+<h3>Role in Mezoria</h3>
+<p>
+Mythrians are respected and feared across Mezoria for their martial strength and 
+uncanny instincts. Many serve as:
+</p>
+
+<ul>
+  <li><strong>rangers and trackers</strong> of great renown</li>
+  <li><strong>elite warriors</strong> valued for discipline and ferocity</li>
+  <li><strong>protectors</strong> of wild regions and sacred natural sites</li>
+  <li><strong>skilled mercenaries</strong> whose reputation alone deters conflict</li>
+</ul>
+
+<p>
+Their relationship with nature makes them natural guardians of the land, and their 
+primitive elegance commands respect even among Mezoria’s most powerful races.
+</p>
+
+<h3>Cultural Identity</h3>
+<p>
+Mythrian culture is deeply rooted in <strong>ancestral reverence</strong> and <strong>the sacred hunt</strong>. 
+To a Mythrian, hunting is not only sustenance—it is a ritual, a celebration of life 
+and balance, and a means of honoring their lineage.
+</p>
+
+<p>
+Their ceremonies honor the spirits of the predators they embody. Storytelling, dance, 
+and tradition revolve around:
+</p>
+
+<ul>
+  <li>legends of great hunts</li>
+  <li>ancestral spirits</li>
+  <li>the balance between predator and prey</li>
+  <li>the cycles of nature and survival</li>
+</ul>
+
+<h3>Mystical Connection</h3>
+<p>
+Many Mythrians are believed to possess a <strong>subtle spiritual link</strong> to the land, 
+their ancestral animal spirits, and the primal forces of Mezoria. This bond may 
+manifest as:
+</p>
+
+<p>
+This mystical heritage makes Mythrians both guardians of their territories and 
+keepers of ancient primal wisdom.
+</p>
+    `
+},
+
  sylvan: {
   label: "Sylvan",
   img: "systems/the-marked-system/assets/races/sylvan.webp",
