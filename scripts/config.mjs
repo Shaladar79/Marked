@@ -162,6 +162,55 @@ MarkedConfig.backgroundsByType = {
   }
 };
 
+// -------------------------------------
+// BACKGROUND DESCRIPTIONS (Common Professions)
+// Not used in the sheet yet, but ready for future UI
+// -------------------------------------
+MarkedConfig.backgroundDescriptions = {
+  farmer: "Grew up working the land with patience and endurance.",
+  hunter: "Learned to track, stalk, and strike in the wilds.",
+  fisher: "Spent days by water, mastering rhythm and patience.",
+  laborer: "Built strength through long, grueling physical work.",
+  merchant: "Assisted with trade, haggling, and handling goods.",
+  shepherd: "Watched over herds in solitude and open terrain.",
+  gravedigger: "Performed the quiet labor of burying the dead.",
+  stable_hand: "Cared for mounts and beasts with steady hands.",
+  messenger: "Ran routes across dangerous roads without fail.",
+  woodcutter: "Harvested timber with strength and precision.",
+  milkmaid_dairyman: "Handled livestock and crafted dairy goods.",
+  field_hand: "Worked another’s land for food or coin.",
+  kitchen_worker: "Scrubbed and served in hot, noisy kitchens.",
+  field_guide: "Led travelers through forests, hills, and hazards.",
+  cook: "Fed others with skill, speed, and simple magic.",
+   "blacksmiths_apprentice": "Forged tools and weapons with fire and muscle.",
+  "herbalist": "Knew which plants healed, poisoned, or soothed.",
+  "scribe": "Copied and recorded with a practiced, steady hand.",
+  "tanner": "Prepared hides through pungent, methodical work.",
+  "glassblower": "Shaped molten art with breath and precision.",
+  "weaver": "Spun thread and patterns with care and patience.",
+  "potter": "Shaped clay into vessels, both fine and common.",
+  "chandler": "Crafted candles and learned their chemistry.",
+  "mason": "Carved stone and raised structures with grit.",
+  "bowyer_fletcher": "Built bows and arrows with balanced skill.",
+  "brewer": "Brewed spirits and ales with craft and care.",
+  "tailor": "Stitched garments and shaped fashions.",
+  "shipwright": "Built and repaired vessels strong enough for the sea.",
+  "jeweler": "Cut stones and crafted delicate ornamentation.",
+  "carpenter": "Shaped wood into homes, carts, and keepsakes.",
+  "calligrapher": "Wrote beautifully and knew the weight of ink.",
+  "miner": "Delved deep for ore, stone, and risk.",
+  "tinker": "Fixed, built, and modified with curious hands.",
+  "butcher": "Cleanly carved flesh and knew meat well.",
+  "cobbler": "Made and repaired shoes for every step of life.",
+  "bookbinder": "Bound words and paper into lasting volumes.",
+  "painter": "Captured life and memory in color and canvas.",
+  "ropemaker": "Twisted fibers into life-saving cords and knots.",
+  "armorer": "Crafted defense from metal, leather, and will.",
+  "perfumer": "Blended oils and scents into memory and mood.",
+  "cook_skilled": "Fed bellies and souls with crafted meals.,
+};
+
+
 // Optional: flat map of all backgrounds, if anything still uses it
 MarkedConfig.backgrounds = {
   ...MarkedConfig.backgroundsByType.common,
