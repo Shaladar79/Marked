@@ -55,7 +55,8 @@ Hooks.once("setup", async function () {
    "systems/the-marked-system/templates/actors/parts/subparts/mopdrop.hbs",
    "systems/the-marked-system/templates/actors/parts/information.hbs",
    "systems/the-marked-system/templates/actors/parts/skills.hbs",
-   "systems/the-marked-system/templates/actors/parts/skills/body-might.hbs"
+   "systems/the-marked-system/templates/actors/parts/skills/body-might.hbs",
+   "systems/the-marked-system/templates/actors/parts/skills/body-swiftness.hbs"
 
 ]);
 });
