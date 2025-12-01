@@ -483,7 +483,6 @@ MarkedConfig.raceAttributes = {
   },
   Anthozoan: {
     "body.might": 2,
-    "body.fortitude": 4,
     "body.endurance": 4,
     "soul.resolve": 2
   },
@@ -507,7 +506,6 @@ MarkedConfig.raceAttributes = {
   },
   Draconian: {
     "body.might": 4,
-    "body.fortitude": 4,
     "body.endurance": 2,
     "soul.presence": 2
   },
@@ -520,7 +518,6 @@ MarkedConfig.raceAttributes = {
   },
   Earthen: {
     "body.might": 2,
-    "body.fortitude": 4,
     "body.endurance": 4,
     "mind.willpower": 2
   },
