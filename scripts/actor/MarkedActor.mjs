@@ -29,7 +29,6 @@ export class MarkedActor extends Actor {
       const values = [
         b.might?.value,
         b.swiftness?.value,
-        b.fortitude?.value,
         b.endurance?.value
       ].map(v => Number(v ?? 0));
 
@@ -45,7 +44,6 @@ export class MarkedActor extends Actor {
         m.insight?.value,
         m.quickness?.value,
         m.willpower?.value,
-        m.focus?.value
       ].map(v => Number(v ?? 0));
 
       const sum   = values.reduce((a, v) => a + v, 0);
@@ -60,7 +58,6 @@ export class MarkedActor extends Actor {
         s.presence?.value,
         s.grace?.value,
         s.resolve?.value,
-        s.resonance?.value
       ].map(v => Number(v ?? 0));
 
       const sum   = values.reduce((a, v) => a + v, 0);
