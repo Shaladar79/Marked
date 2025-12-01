@@ -3,7 +3,6 @@
 import { MarkedConfig } from "../config.mjs";
 
 export class MarkedActorSheet extends ActorSheet {
-
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["marked", "sheet", "actor"],
@@ -12,55 +11,48 @@ export class MarkedActorSheet extends ActorSheet {
       height: 700,
 
       tabs: [
-        // ---------------------------
-        // TOP-LEVEL TABS
-        // ---------------------------
+        // TOP-LEVEL TABS (Information / Attributes & Status / Abilities / Skills)
         {
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
           initial: "attr-status"
         },
 
-        // ---------------------------
         // SUBTABS: Attributes & Status
-        // ---------------------------
         {
           navSelector: ".sub-tabs",
           contentSelector: ".sub-body",
           initial: "attributes"
         },
 
-        // ---------------------------
-        // SUBTABS: Abilities (Marks)
-        // ---------------------------
+        // SUBTABS: Abilities (Marks, later more)
         {
           navSelector: ".abilities-subtabs",
           contentSelector: ".abilities-subbody",
           initial: "marks"
         },
 
-        // ---------------------------
         // SUBTABS: Skills (Body / Mind / Soul)
-        // ---------------------------
-       {
-  navSelector: ".skills-subtabs",
-  contentSelector: ".skills-subbody",
-  initial: "body-skills"
-},
-
+        {
+          navSelector: ".skills-subtabs",
+          contentSelector: ".skills-subbody",
+          initial: "body-skills"
+        }
+      ],
 
       submitOnChange: true,
       submitOnClose: true
     });
   }
 
-  getData(options) {
-    const context = super.getData(options);
+  getData(options = {}) {
+    const data = super.getData(options);
 
-    context.system = context.data?.system ?? context.system;
-    context.config = MarkedConfig;
+    // Foundry v10/11 compatibility: some versions use data.data.system
+    data.system = data.data?.system ?? data.system;
+    data.config = MarkedConfig;
 
-    return context;
+    return data;
   }
 
   activateListeners(html) {
@@ -73,9 +65,9 @@ export class MarkedActorSheet extends ActorSheet {
     const tribeField = html.find(".tribe-field");
     const clanField  = html.find(".clan-field");
 
-    // Show/hide tribe/clan based on race
+    // Show/hide tribe & clan based on race key ("mythrian", "draconian")
     const updateRaceDependentFields = () => {
-      const raceKey = raceSelect.val(); // e.g. "human", "mythrian"
+      const raceKey = raceSelect.val();
 
       // Mythrian → show Tribe
       if (raceKey === "mythrian") {
@@ -96,10 +88,10 @@ export class MarkedActorSheet extends ActorSheet {
 
     // Apply racial STATUS + ATTRIBUTE bonuses when race changes
     const applyRaceData = () => {
-      const raceKey = raceSelect.val(); // "human", "etherean", etc.
+      const raceKey = raceSelect.val();
       if (!raceKey) return;
 
-      // Convert key → label, e.g. "human" → "Human"
+      // e.g. "human" → "Human"
       const raceLabel = MarkedConfig.races?.[raceKey] ?? raceKey;
 
       const raceStatus     = MarkedConfig.raceStatus?.[raceLabel];
@@ -108,12 +100,12 @@ export class MarkedActorSheet extends ActorSheet {
       const update = {};
 
       // 1) STATUS: copy racial status into system.status.*
-      if (raceStatus && raceStatus.status) {
+      if (raceStatus?.status) {
         for (const [path, value] of Object.entries(raceStatus.status)) {
           update[`system.status.${path}`] = value;
         }
 
-        // Optionally set current = max for V/M/S on race selection
+        // Optionally set current = max for V/M/S
         if (raceStatus.status["vitality.max"] !== undefined) {
           update["system.status.vitality.value"] = raceStatus.status["vitality.max"];
         }
@@ -135,20 +127,20 @@ export class MarkedActorSheet extends ActorSheet {
         }
       }
 
-      // Also store the race key itself (already bound to the dropdown)
       update["system.details.race"] = raceKey;
 
-      this.object.update(update);
+      if (Object.keys(update).length > 0) {
+        this.object.update(update);
+      }
     };
 
-    // On initial render, just adjust tribe/clan visibility
+    // Initial state
     updateRaceDependentFields();
 
-    // When race changes: update tribe/clan visibility AND apply racial data
+    // When race changes
     raceSelect.on("change", () => {
       updateRaceDependentFields();
       applyRaceData();
     });
-
   }
 }
