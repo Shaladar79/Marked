@@ -17,13 +17,13 @@
          ========================= --}}
     <div class="tab" data-group="skills-sub" data-tab="body-skills">
       <div class="skills-grid">
+
+        {{!-- MIGHT BLOCK (uses partial) --}}
         <div class="skills-block">
-          <h3>Might</h3>
-          <div class="skills-list skills-might">
-            <em>TODO: Add Might-based skills here.</em>
-          </div>
+          {{> "systems/the-marked-system/templates/actors/parts/skills/body-might.hbs"}}
         </div>
 
+        {{!-- SWIFTNESS --}}
         <div class="skills-block">
           <h3>Swiftness</h3>
           <div class="skills-list skills-swiftness">
@@ -31,6 +31,7 @@
           </div>
         </div>
 
+        {{!-- FORTITUDE --}}
         <div class="skills-block">
           <h3>Fortitude</h3>
           <div class="skills-list skills-fortitude">
@@ -38,12 +39,14 @@
           </div>
         </div>
 
+        {{!-- ENDURANCE --}}
         <div class="skills-block">
           <h3>Endurance</h3>
           <div class="skills-list skills-endurance">
             <em>TODO: Add Endurance-based skills here.</em>
           </div>
         </div>
+
       </div>
     </div>
 
