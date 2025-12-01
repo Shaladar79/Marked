@@ -17,15 +17,14 @@
           "spentSpirit": 0,
           "totalSpirit": 0
         },
-        "attributes": {
-         "body": {
-  "label": "Body",
-  "value": 0,
-  "might":     { "label": "Might",     "value": 0 },
-  "swiftness": { "label": "Swiftness", "value": 0 },
-  "endurance": { "label": "Endurance", "value": 0 }
-}
 
+        "attributes": {
+          "body": {
+            "label": "Body",
+            "value": 0,
+            "might":     { "label": "Might",     "value": 0 },
+            "swiftness": { "label": "Swiftness", "value": 0 },
+            "endurance": { "label": "Endurance", "value": 0 }
           },
           "mind": {
             "label": "Mind",
@@ -34,16 +33,15 @@
             "quickness": { "label": "Quickness", "value": 0 },
             "willpower": { "label": "Willpower", "value": 0 }
           },
-        
           "soul": {
             "label": "Soul",
             "value": 0,
-            "presence":  { "label": "Presence",  "value": 0 },
-            "grace":     { "label": "Grace",     "value": 0 },
-            "resolve":   { "label": "Resolve",   "value": 0 }
+            "presence": { "label": "Presence", "value": 0 },
+            "grace":    { "label": "Grace",    "value": 0 },
+            "resolve":  { "label": "Resolve",  "value": 0 }
           }
         },
-      
+
         "status": {
           "vitality":  { "label": "Vitality",  "value": 0, "max": 0, "regen": 0 },
           "mana":      { "label": "Mana",      "value": 0, "max": 0, "regen": 0 },
@@ -55,10 +53,12 @@
           "armor":     { "label": "Armor",     "value": 0, "max": 0 },
           "shielding": { "label": "Shielding", "value": 0 }
         },
+
         "skills": {
           "body": {
             "might": {
               "expertise": false,
+
               "athletics": {
                 "label": "Athletics",
                 "trained": false,
