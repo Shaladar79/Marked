@@ -15,32 +15,27 @@
     {{!-- =========================
          BODY SKILLS
          ========================= --}}
-    <div class="tab" data-group="skills-sub" data-tab="body-skills">
+  <div class="tab" data-group="skills-sub" data-tab="body-skills">
+  <div class="skills-grid">
 
-      <details class="skills-collapse" open>
-        <summary>Might Skills</summary>
-        <div class="skills-block">
-          {{> "systems/the-marked-system/templates/actors/parts/skills/body-might.hbs"}}
-        </div>
-      </details>
+    <details class="skills-block" open>
+      <summary><h3>Might Skills</h3></summary>
+      {{> "systems/the-marked-system/templates/actors/parts/skills/body-might.hbs"}}
+    </details>
 
-      <details class="skills-collapse" open>
-        <summary>Swiftness Skills</summary>
-        <div class="skills-block">
-          {{> "systems/the-marked-system/templates/actors/parts/skills/body-swiftness.hbs"}}
-        </div>
-      </details>
+    <details class="skills-block">
+      <summary><h3>Swiftness Skills</h3></summary>
+      {{> "systems/the-marked-system/templates/actors/parts/skills/body-swiftness.hbs"}}
+    </details>
 
-      <details class="skills-collapse" open>
-        <summary>Endurance Skills</summary>
-       <div class="skills-block">
-  <h3>Endurance</h3>
-  {{> "systems/the-marked-system/templates/actors/parts/skills/body-endurance.hbs"}}
+    <details class="skills-block">
+      <summary><h3>Endurance Skills</h3></summary>
+      {{> "systems/the-marked-system/templates/actors/parts/skills/body-endurance.hbs"}}
+    </details>
+
+  </div>
 </div>
-        </div>
-      </details>
 
-    </div>
 
     {{!-- =========================
          MIND SKILLS
