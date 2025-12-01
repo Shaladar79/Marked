@@ -70,7 +70,7 @@ export class MarkedActor extends Actor {
 
     // =============================
     // SKILL TOTALS
-    // (for now: total = parent attribute avg)
+    // (for now: total = parent sub-attribute value)
     // =============================
     const skills = system.skills ?? {};
 
@@ -104,5 +104,168 @@ export class MarkedActor extends Actor {
     // Later: SOUL skills (Presence / Grace / Resolve) once defined in template.json
 
     // Later: compute Parry, Toughness, Essence slots, Mark effects, etc.
+  }
+
+  // ============================================================
+  // CORE ROLL LOGIC: d100 vs target with successes
+  //  - Roll 1d100
+  //  - Auto fail on 95–100
+  //  - Success if roll <= target
+  //  - +1 extra success per full 15 under target
+  //  - Rolls 1–5: critical success, +4 successes
+  // ============================================================
+  async _rollPercentTest(target, {
+    label      = "Test",
+    flavor     = "",
+    data       = {},
+    chatOptions = {}
+  } = {}) {
+
+    const tn = Number(target ?? 0) || 0;
+
+    // If for some reason target is 0 or negative, just hard-fail
+    if (tn <= 0) {
+      ui?.notifications?.warn?.("Target number is 0 or less – automatic failure.");
+    }
+
+    const roll = await (new Roll("1d100")).evaluate({ async: true });
+    const value = roll.total;
+
+    const isCrit     = (value >= 1 && value <= 5);
+    const isAutoFail = (value >= 95 && value <= 100);
+
+    let successes = 0;
+    let resultText = "Failure";
+
+    if (!isAutoFail && tn > 0 && value <= tn) {
+      // Base 1 success
+      successes = 1;
+
+      // Margin under target
+      const margin = tn - value;
+
+      // +1 per full 15 under
+      successes += Math.floor(margin / 15);
+
+      // Crit adds +4 successes
+      if (isCrit) successes += 4;
+
+      if (isCrit) {
+        resultText = "Critical Success";
+      } else if (successes > 1) {
+        resultText = "Success (Multiple)";
+      } else {
+        resultText = "Success";
+      }
+    } else {
+      // Failure path (includes auto fail)
+      if (isAutoFail) {
+        resultText = "Automatic Failure";
+      } else {
+        resultText = "Failure";
+      }
+    }
+
+    // ----- Build a simple roll card -----
+    const rollHTML = await roll.render();
+
+    const content = `
+      <div class="marked-roll-card">
+        <header class="roll-header">
+          <h3>${label}</h3>
+        </header>
+        <div class="roll-body">
+          <p><strong>Target:</strong> ${tn}%</p>
+          <p><strong>Roll:</strong> ${value}</p>
+          <p><strong>Successes:</strong> ${successes}</p>
+          <p><strong>Result:</strong> ${resultText}</p>
+        </div>
+        <hr/>
+        <div class="roll-result">
+          ${rollHTML}
+        </div>
+      </div>
+    `;
+
+    const speaker = ChatMessage.getSpeaker({ actor: this });
+
+    await ChatMessage.create({
+      speaker,
+      flavor,
+      content,
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      rolls: [roll],
+      flags: {
+        "the-marked-system": {
+          testType: data.testType ?? "attribute",
+          target: tn,
+          rawRoll: value,
+          successes
+        }
+      },
+      ...chatOptions
+    });
+
+    return {
+      roll,
+      target: tn,
+      value,
+      successes,
+      isCrit,
+      isAutoFail,
+      resultText
+    };
+  }
+
+  // ============================================================
+  // ATTRIBUTE GROUP ROLL
+  //  - attrKey: "body" | "mind" | "soul"
+  //  - Uses the AVG value (system.attributes[attrKey].value)
+  // ============================================================
+  async rollAttributeGroup(attrKey) {
+    const attrs = this.system.attributes ?? {};
+    const group = attrs[attrKey];
+    if (!group) return;
+
+    const tn = Number(group.value ?? 0) || 0;
+    const label = `${this.name} – ${group.label} Test`;
+
+    return this._rollPercentTest(tn, {
+      label,
+      flavor: `Attribute roll: ${group.label}`,
+      data: { testType: "attribute", attrKey }
+    });
+  }
+
+  // ============================================================
+  // SKILL ROLL (for later wiring to skill buttons)
+  //  - path example: "body.might.athletics"
+  //    → looks up system.skills.body.might.athletics.total
+  // ============================================================
+  async rollSkill(path, { label = null, flavor = "" } = {}) {
+    const skills = this.system.skills ?? {};
+    if (!path) return;
+
+    const segments = path.split(".");
+    let node = skills;
+
+    for (const seg of segments) {
+      if (!node) break;
+      node = node[seg];
+    }
+
+    if (!node) {
+      console.warn(`MarkedActor | rollSkill: could not resolve path ${path}`);
+      return;
+    }
+
+    const tn = Number(node.total ?? 0) || 0;
+    const skillLabel = label || node.label || path;
+
+    return this._rollPercentTest(tn, {
+      label: `${this.name} – ${skillLabel}`,
+      flavor: `Skill roll: ${skillLabel}`,
+      data: { testType: "skill", path }
+    });
   }
 }
