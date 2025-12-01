@@ -77,6 +77,12 @@
                 "specialty": "",
                 "total": 0
               },
+              "intimidation": {
+                "label": "Intimidation",
+                "trained": false,
+                "specialty": "",
+                "total": 0
+              },
               "combatHeavy": {
                 "label": "Combat: Heavy Weapons",
                 "trained": false,
