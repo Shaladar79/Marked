@@ -116,6 +116,31 @@
         </td>
       </tr>
 
+      {{!-- Intimidation --}}
+<tr>
+  <td>Intimidation</td>
+  <td>
+    <input type="checkbox"
+           name="system.skills.might.intimidation.trained"
+           {{checked system.skills.might.intimidation.trained}} />
+  </td>
+  <td>
+    <input type="text"
+           name="system.skills.might.intimidation.specialty"
+           value="{{system.skills.might.intimidation.specialty}}" />
+  </td>
+  <td>
+    {{system.skills.might.intimidation.total}}
+  </td>
+  <td>
+    <button type="button"
+            class="roll-skill"
+            data-skill="might.intimidation">
+      🎲
+    </button>
+  </td>
+</tr>
+
       {{!-- Combat: Heavy Weapons --}}
       <tr>
         <td>Combat: Heavy Weapons</td>
