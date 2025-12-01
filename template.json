@@ -101,6 +101,64 @@
                 "specialty": "",
                 "total": 0
               }
+            },
+
+            "swiftness": {
+              "expertise": false,
+
+              "acrobatics": {
+                "label": "Acrobatics",
+                "trained": false,
+                "specialty": "",
+                "total": 0
+              },
+              "stealth": {
+                "label": "Stealth",
+                "trained": false,
+                "specialty": "",
+                "total": 0
+              },
+              "sleightOfHand": {
+                "label": "Sleight of Hand",
+                "trained": false,
+                "specialty": "",
+                "total": 0
+              },
+              "disarm": {
+                "label": "Disarm",
+                "trained": false,
+                "specialty": "",
+                "total": 0
+              },
+              "combatRanged": {
+                "label": "Combat: Ranged Weapons",
+                "trained": false,
+                "specialty": "",
+                "total": 0
+              },
+              "combatThrowing": {
+                "label": "Combat: Throwing Weapons",
+                "trained": false,
+                "specialty": "",
+                "total": 0
+              }
+            },
+
+            "endurance": {
+              "expertise": false,
+
+              "fortitude": {
+                "label": "Fortitude",
+                "trained": false,
+                "specialty": "",
+                "total": 0
+              },
+              "painTolerance": {
+                "label": "Pain Tolerance",
+                "trained": false,
+                "specialty": "",
+                "total": 0
+              }
             }
           }
         }
