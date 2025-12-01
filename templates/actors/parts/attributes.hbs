@@ -6,7 +6,9 @@
 
   <div class="attribute-grid">
 
-    {{!-- BODY COLUMN --}}
+    {{!-- =============================
+         BODY COLUMN
+         ============================= --}}
     <div class="attribute-group">
       <header class="attribute-group-header">
         {{system.attributes.body.label}}
@@ -14,10 +16,18 @@
 
       <div class="attr-row primary-attr">
         <label>Body AVG</label>
+
         <input type="number"
                name="system.attributes.body.value"
                data-dtype="Number"
-               value="{{system.attributes.body.value}}" disabled />
+               value="{{system.attributes.body.value}}"
+               disabled />
+
+        <button type="button"
+                class="roll-attribute"
+                data-attr="body">
+          🎲
+        </button>
       </div>
 
       <div class="attr-row">
@@ -36,7 +46,6 @@
                value="{{system.attributes.body.swiftness.value}}" />
       </div>
 
-
       <div class="attr-row">
         <label>{{system.attributes.body.endurance.label}}</label>
         <input type="number"
@@ -46,7 +55,10 @@
       </div>
     </div>
 
-    {{!-- MIND COLUMN --}}
+
+    {{!-- =============================
+         MIND COLUMN
+         ============================= --}}
     <div class="attribute-group">
       <header class="attribute-group-header">
         {{system.attributes.mind.label}}
@@ -54,10 +66,18 @@
 
       <div class="attr-row primary-attr">
         <label>Mind AVG</label>
+
         <input type="number"
                name="system.attributes.mind.value"
                data-dtype="Number"
-               value="{{system.attributes.mind.value}}" disabled />
+               value="{{system.attributes.mind.value}}"
+               disabled />
+
+        <button type="button"
+                class="roll-attribute"
+                data-attr="mind">
+          🎲
+        </button>
       </div>
 
       <div class="attr-row">
@@ -85,7 +105,10 @@
       </div>
     </div>
 
-    {{!-- SOUL COLUMN --}}
+
+    {{!-- =============================
+         SOUL COLUMN
+         ============================= --}}
     <div class="attribute-group">
       <header class="attribute-group-header">
         {{system.attributes.soul.label}}
@@ -93,10 +116,18 @@
 
       <div class="attr-row primary-attr">
         <label>Soul AVG</label>
+
         <input type="number"
                name="system.attributes.soul.value"
                data-dtype="Number"
-               value="{{system.attributes.soul.value}}" disabled />
+               value="{{system.attributes.soul.value}}"
+               disabled />
+
+        <button type="button"
+                class="roll-attribute"
+                data-attr="soul">
+          🎲
+        </button>
       </div>
 
       <div class="attr-row">
@@ -122,9 +153,7 @@
                data-dtype="Number"
                value="{{system.attributes.soul.resolve.value}}" />
       </div>
-
     </div>
 
   </div>
 </section>
-
