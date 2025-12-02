@@ -34,7 +34,6 @@ export class MarkedActorSheet extends ActorSheet {
 
         // SUBTABS: Skills (Body / Mind / Soul)
         {
-          // match skills.hbs: class="skills-sub-tabs" and class="skills-sub-body"
           navSelector: ".skills-sub-tabs",
           contentSelector: ".skills-sub-body",
           initial: "body-skills"
@@ -56,6 +55,10 @@ export class MarkedActorSheet extends ActorSheet {
     return data;
   }
 
+  /* -------------------------------------------- */
+  /*  Listeners                                   */
+  /* -------------------------------------------- */
+
   activateListeners(html) {
     super.activateListeners(html);
 
@@ -66,7 +69,6 @@ export class MarkedActorSheet extends ActorSheet {
     const tribeField = html.find(".tribe-field");
     const clanField  = html.find(".clan-field");
 
-    // Show/hide tribe & clan based on race key ("mythrian", "draconian")
     const updateRaceDependentFields = () => {
       const raceKey = raceSelect.val();
 
@@ -87,7 +89,6 @@ export class MarkedActorSheet extends ActorSheet {
       }
     };
 
-    // Apply racial STATUS + ATTRIBUTE bonuses when race changes
     const applyRaceData = () => {
       const raceKey = raceSelect.val();
       if (!raceKey) return;
@@ -145,69 +146,114 @@ export class MarkedActorSheet extends ActorSheet {
     });
 
     // --------------------------------
-    // ATTRIBUTE GROUP ROLLS (Body/Mind/Soul AVG)
+    // ATTRIBUTE ROLLS (group + sub)
     // --------------------------------
-    html.on("click", ".roll-attribute-group, .roll-attribute", ev => {
-      ev.preventDefault();
-      const button = ev.currentTarget;
+    html.on("click", ".roll-attribute", this._onAttributeRoll.bind(this));
+    html.on("click", ".roll-subattribute", this._onSubattributeRoll.bind(this));
+  }
 
-      // Support both data-attr-group and data-attr
-      const groupKey =
-        button.dataset.attrGroup ||
-        button.dataset.attr;
+  /* -------------------------------------------- */
+  /*  Roll Helpers                                */
+  /* -------------------------------------------- */
 
-      if (!groupKey) return;
+  /**
+   * Core percent-check logic:
+   * - target = attribute value
+   * - success on roll <= target
+   * - +1 success per full 15 under
+   * - 1–5 = crit success: +4 successes
+   * - 95–100 = auto-fail
+   */
+  async _percentCheck(target, label, groupLabel = "") {
+    const tgt = Number(target ?? 0) || 0;
 
-      if (typeof this.actor.rollAttributeGroup === "function") {
-        this.actor.rollAttributeGroup(groupKey);
-      } else {
-        console.warn("MarkedActorSheet | rollAttributeGroup helper not found on actor.");
-      }
-    });
+    const roll = await new Roll("1d100").evaluate({ async: true });
+    const r = roll.total;
 
-    // --------------------------------
-    // SKILL ROLLS
-    //  - Buttons: .roll-skill data-skill="might.athletics" etc.
-    //  - We infer body/mind/soul from the surrounding tab.
-    // --------------------------------
-    html.on("click", ".roll-skill", ev => {
-      ev.preventDefault();
-      const button = ev.currentTarget;
-      let skillKey = button.dataset.skill;
-      if (!skillKey) return;
+    let successes = 0;
+    let outcome   = "Failure";
 
-      // If the skillKey is already fully qualified (body.* / mind.* / soul.*),
-      // just use it directly.
-      let fullPath = skillKey;
+    if (r >= 95) {
+      outcome = "Catastrophic Failure";
+      successes = 0;
+    } else {
+      const diff = tgt - r;
+      if (diff >= 0) {
+        successes = 1 + Math.floor(diff / 15);
 
-      const alreadyQualified =
-        skillKey.startsWith("body.") ||
-        skillKey.startsWith("mind.") ||
-        skillKey.startsWith("soul.");
-
-      if (!alreadyQualified) {
-        // Determine which primary group we are in: body / mind / soul
-        let primary = null;
-
-        // Find closest tab wrapper
-        const bodyTab = button.closest('.tab[data-tab="body-skills"]');
-        const mindTab = button.closest('.tab[data-tab="mind-skills"]');
-        const soulTab = button.closest('.tab[data-tab="soul-skills"]');
-
-        if (bodyTab) primary = "body";
-        else if (mindTab) primary = "mind";
-        else if (soulTab) primary = "soul";
-
-        if (primary) {
-          fullPath = `${primary}.${skillKey}`;
+        if (r <= 5) {
+          successes += 4;
+          outcome = "Critical Success";
+        } else {
+          outcome = "Success";
         }
-      }
-
-      if (typeof this.actor.rollSkill === "function") {
-        this.actor.rollSkill(fullPath);
       } else {
-        console.warn("MarkedActorSheet | rollSkill helper not found on actor.");
+        outcome = "Failure";
       }
+    }
+
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+
+    const flavorParts = [];
+    if (groupLabel) flavorParts.push(`<strong>${groupLabel}</strong>`);
+    if (label)      flavorParts.push(`<span>${label}</span>`);
+
+    const flavor = flavorParts.join(" – ");
+
+    const content = `
+      <div class="marked-roll-card">
+        <h3>${flavor}</h3>
+        <p><strong>Target:</strong> ${tgt}%</p>
+        <p><strong>Roll:</strong> ${r}</p>
+        <p><strong>Outcome:</strong> ${outcome}</p>
+        <p><strong>Successes:</strong> ${successes}</p>
+      </div>
+    `;
+
+    await ChatMessage.create({
+      speaker,
+      flavor: "Attribute Check",
+      content,
+      rolls: [roll]
     });
+  }
+
+  /* -------------------------------------------- */
+
+  async _onAttributeRoll(event) {
+    event.preventDefault();
+    const button  = event.currentTarget;
+    const groupKey = button.dataset.attr; // "body" | "mind" | "soul"
+
+    if (!groupKey) return;
+
+    const attrs = this.actor.system.attributes?.[groupKey];
+    if (!attrs) return;
+
+    const target = attrs.value ?? 0;
+    const label  = `${attrs.label ?? groupKey} AVG`;
+
+    return this._percentCheck(target, label, "Attribute Group");
+  }
+
+  async _onSubattributeRoll(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const path   = button.dataset.subattr; // e.g. "body.might"
+
+    if (!path) return;
+
+    const [groupKey, subKey] = path.split(".");
+    const group = this.actor.system.attributes?.[groupKey];
+    if (!group) return;
+
+    const sub = group[subKey];
+    if (!sub) return;
+
+    const target = sub.value ?? 0;
+    const label  = sub.label ?? subKey;
+    const groupLabel = group.label ?? groupKey;
+
+    return this._percentCheck(target, label, groupLabel);
   }
 }
