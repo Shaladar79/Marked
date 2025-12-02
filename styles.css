@@ -262,3 +262,32 @@
   line-height: 1.2;
 }
 
+/* ============================================================
+   ATTRIBUTE ROLL BUTTONS – NORMALIZE SIZE FOR ALL OF THEM
+   ============================================================ */
+
+/* Base style for all attribute roll buttons */
+.attributes-section button.roll-attribute,
+.attributes-section button.roll-subattribute {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #888;
+  border-radius: 4px;
+
+  background: #f0f0f0;
+  font-size: 18px;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.attributes-section button.roll-attribute:hover,
+.attributes-section button.roll-subattribute:hover {
+  background: #e0e0e0;
+  border-color: #666;
+}
