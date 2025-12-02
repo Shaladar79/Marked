@@ -14,14 +14,14 @@
     <div class="attr-controls">
       <label class="checkbox">
         <input type="checkbox"
-               name="system.skills.might.expertise"
-               {{checked system.skills.might.expertise}} />
+               name="system.skills.body.might.expertise"
+               {{checked system.skills.body.might.expertise}} />
         Expertise
       </label>
 
-      <button type="button"
-              class="roll-attribute"
-              data-attr="body.might">
+      <button class="roll-any"
+              data-rolltype="attribute"
+              data-path="body.might">
         🎲
       </button>
     </div>
@@ -46,146 +46,121 @@
         <td>Athletics</td>
         <td>
           <input type="checkbox"
-                 name="system.skills.might.athletics.trained"
-                 {{checked system.skills.might.athletics.trained}} />
+                 name="system.skills.body.might.athletics.trained"
+                 {{checked system.skills.body.might.athletics.trained}} />
         </td>
         <td>
           <input type="text"
-                 name="system.skills.might.athletics.specialty"
-                 value="{{system.skills.might.athletics.specialty}}" />
+                 name="system.skills.body.might.athletics.specialty"
+                 value="{{system.skills.body.might.athletics.specialty}}" />
         </td>
         <td>
-          {{system.skills.might.athletics.total}}
+          {{system.skills.body.might.athletics.total}}
         </td>
         <td>
-          <button type="button"
-                  class="roll-skill"
-                  data-skill="might.athletics">
+          <button class="roll-any"
+                  data-rolltype="skill"
+                  data-path="body.might.athletics">
             🎲
           </button>
         </td>
       </tr>
 
-      {{!-- Heft (formerly Load Bearing) --}}
-      <tr>
-        <td>Heft</td>
-        <td>
-          <input type="checkbox"
-                 name="system.skills.might.heft.trained"
-                 {{checked system.skills.might.heft.trained}} />
-        </td>
-        <td>
-          <input type="text"
-                 name="system.skills.might.heft.specialty"
-                 value="{{system.skills.might.heft.specialty}}" />
-        </td>
-        <td>
-          {{system.skills.might.heft.total}}
-        </td>
-        <td>
-          <button type="button"
-                  class="roll-skill"
-                  data-skill="might.heft">
-            🎲
-          </button>
-        </td>
-      </tr>
-
-      {{!-- Brute Force (forcing doors, bending bars, etc.) --}}
+      {{!-- Brute Force --}}
       <tr>
         <td>Brute Force</td>
         <td>
           <input type="checkbox"
-                 name="system.skills.might.bruteforce.trained"
-                 {{checked system.skills.might.bruteforce.trained}} />
+                 name="system.skills.body.might.bruteForce.trained"
+                 {{checked system.skills.body.might.bruteForce.trained}} />
         </td>
         <td>
           <input type="text"
-                 name="system.skills.might.bruteforce.specialty"
-                 value="{{system.skills.might.bruteforce.specialty}}" />
+                 name="system.skills.body.might.bruteForce.specialty"
+                 value="{{system.skills.body.might.bruteForce.specialty}}" />
         </td>
         <td>
-          {{system.skills.might.bruteforce.total}}
+          {{system.skills.body.might.bruteForce.total}}
         </td>
         <td>
-          <button type="button"
-                  class="roll-skill"
-                  data-skill="might.bruteforce">
+          <button class="roll-any"
+                  data-rolltype="skill"
+                  data-path="body.might.bruteForce">
+            🎲
+          </button>
+        </td>
+      </tr>
+
+      {{!-- Heft --}}
+      <tr>
+        <td>Heft</td>
+        <td>
+          <input type="checkbox"
+                 name="system.skills.body.might.heft.trained"
+                 {{checked system.skills.body.might.heft.trained}} />
+        </td>
+        <td>
+          <input type="text"
+                 name="system.skills.body.might.heft.specialty"
+                 value="{{system.skills.body.might.heft.specialty}}" />
+        </td>
+        <td>
+          {{system.skills.body.might.heft.total}}
+        </td>
+        <td>
+          <button class="roll-any"
+                  data-rolltype="skill"
+                  data-path="body.might.heft">
             🎲
           </button>
         </td>
       </tr>
 
       {{!-- Intimidation --}}
-<tr>
-  <td>Intimidation</td>
-  <td>
-    <input type="checkbox"
-           name="system.skills.might.intimidation.trained"
-           {{checked system.skills.might.intimidation.trained}} />
-  </td>
-  <td>
-    <input type="text"
-           name="system.skills.might.intimidation.specialty"
-           value="{{system.skills.might.intimidation.specialty}}" />
-  </td>
-  <td>
-    {{system.skills.might.intimidation.total}}
-  </td>
-  <td>
-    <button type="button"
-            class="roll-skill"
-            data-skill="might.intimidation">
-      🎲
-    </button>
-  </td>
-</tr>
+      <tr>
+        <td>Intimidation</td>
+        <td>
+          <input type="checkbox"
+                 name="system.skills.body.might.intimidation.trained"
+                 {{checked system.skills.body.might.intimidation.trained}} />
+        </td>
+        <td>
+          <input type="text"
+                 name="system.skills.body.might.intimidation.specialty"
+                 value="{{system.skills.body.might.intimidation.specialty}}" />
+        </td>
+        <td>
+          {{system.skills.body.might.intimidation.total}}
+        </td>
+        <td>
+          <button class="roll-any"
+                  data-rolltype="skill"
+                  data-path="body.might.intimidation">
+            🎲
+          </button>
+        </td>
+      </tr>
 
       {{!-- Combat: Heavy Weapons --}}
       <tr>
         <td>Combat: Heavy Weapons</td>
         <td>
           <input type="checkbox"
-                 name="system.skills.might.heavy.trained"
-                 {{checked system.skills.might.heavy.trained}} />
+                 name="system.skills.body.might.combatHeavy.trained"
+                 {{checked system.skills.body.might.combatHeavy.trained}} />
         </td>
         <td>
           <input type="text"
-                 name="system.skills.might.heavy.specialty"
-                 value="{{system.skills.might.heavy.specialty}}" />
+                 name="system.skills.body.might.combatHeavy.specialty"
+                 value="{{system.skills.body.might.combatHeavy.specialty}}" />
         </td>
         <td>
-          {{system.skills.might.heavy.total}}
+          {{system.skills.body.might.combatHeavy.total}}
         </td>
         <td>
-          <button type="button"
-                  class="roll-skill"
-                  data-skill="might.heavy">
-            🎲
-          </button>
-        </td>
-      </tr>
-
-      {{!-- Combat: Medium Weapons (includes 2-handed spears) --}}
-      <tr>
-        <td>Combat: Medium Weapons</td>
-        <td>
-          <input type="checkbox"
-                 name="system.skills.might.medium.trained"
-                 {{checked system.skills.might.medium.trained}} />
-        </td>
-        <td>
-          <input type="text"
-                 name="system.skills.might.medium.specialty"
-                 value="{{system.skills.might.medium.specialty}}" />
-        </td>
-        <td>
-          {{system.skills.might.medium.total}}
-        </td>
-        <td>
-          <button type="button"
-                  class="roll-skill"
-                  data-skill="might.medium">
+          <button class="roll-any"
+                  data-rolltype="skill"
+                  data-path="body.might.combatHeavy">
             🎲
           </button>
         </td>
@@ -196,21 +171,46 @@
         <td>Combat: Grappling</td>
         <td>
           <input type="checkbox"
-                 name="system.skills.might.grappling.trained"
-                 {{checked system.skills.might.grappling.trained}} />
+                 name="system.skills.body.might.combatGrappling.trained"
+                 {{checked system.skills.body.might.combatGrappling.trained}} />
         </td>
         <td>
           <input type="text"
-                 name="system.skills.might.grappling.specialty"
-                 value="{{system.skills.might.grappling.specialty}}" />
+                 name="system.skills.body.might.combatGrappling.specialty"
+                 value="{{system.skills.body.might.combatGrappling.specialty}}" />
         </td>
         <td>
-          {{system.skills.might.grappling.total}}
+          {{system.skills.body.might.combatGrappling.total}}
         </td>
         <td>
-          <button type="button"
-                  class="roll-skill"
-                  data-skill="might.grappling">
+          <button class="roll-any"
+                  data-rolltype="skill"
+                  data-path="body.might.combatGrappling">
+            🎲
+          </button>
+        </td>
+      </tr>
+
+      {{!-- Combat: Medium Weapons --}}
+      <tr>
+        <td>Combat: Medium Weapons</td>
+        <td>
+          <input type="checkbox"
+                 name="system.skills.body.might.combatMedium.trained"
+                 {{checked system.skills.body.might.combatMedium.trained}} />
+        </td>
+        <td>
+          <input type="text"
+                 name="system.skills.body.might.combatMedium.specialty"
+                 value="{{system.skills.body.might.combatMedium.specialty}}" />
+        </td>
+        <td>
+          {{system.skills.body.might.combatMedium.total}}
+        </td>
+        <td>
+          <button class="roll-any"
+                  data-rolltype="skill"
+                  data-path="body.might.combatMedium">
             🎲
           </button>
         </td>
