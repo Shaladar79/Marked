@@ -233,4 +233,32 @@
   border-radius: 4px;
 }
 
+/* Attribute AVG row layout */
+.attributes-section .primary-attr.flexrow {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.attributes-section .primary-attr .attr-main {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.attributes-section .primary-attr .attr-main label {
+  flex: 0 0 auto;
+}
+
+.attributes-section .primary-attr .attr-main input {
+  flex: 1 1 auto;
+}
+
+.attributes-section .attr-roll {
+  flex: 0 0 auto;
+  padding: 0 0.4rem;
+  line-height: 1.2;
+}
 
