@@ -62,6 +62,72 @@ export class MarkedActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    // ============================
+//  UNIVERSAL ROLL HANDLER
+// ============================
+html.on("click", ".roll-any", ev => {
+  ev.preventDefault();
+
+  const button = ev.currentTarget;
+
+  const rollType = button.dataset.rolltype;     // "attribute" or "skill"
+  const path     = button.dataset.path;         // e.g. "body.might" or "skills.might.athletics"
+
+  let target = 0;
+
+  // -------------------------
+  // Determine target number
+  // -------------------------
+  if (rollType === "attribute") {
+    target = foundry.utils.getProperty(this.actor.system.attributes, path)?.value ?? 0;
+  }
+  else if (rollType === "skill") {
+    target = foundry.utils.getProperty(this.actor.system.skills, path)?.total ?? 0;
+  }
+
+  // -------------------------
+  // Perform the d100 roll
+  // -------------------------
+  const roll = new Roll("1d100").roll({async:false});
+  const value = roll.total;
+
+  // -------------------------
+  // Calculate DOS
+  // -------------------------
+  let DOS = 0;
+
+  // Critical fail / fail
+  if (value >= 95) {
+    DOS = 0;
+  }
+  else if (value <= 5) {
+    DOS = 4; // crit success = +4 successes
+  }
+  else if (value <= target) {
+    DOS = 1;
+    const margin = target - value;
+    DOS += Math.floor(margin / 15);
+  }
+
+  // -------------------------
+  // STORE THE RESULT
+  // -------------------------
+  this.actor.update({ "system.details.lastDOS": DOS });
+
+  // -------------------------
+  // CHAT MESSAGE
+  // -------------------------
+  roll.toMessage({
+    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+    flavor: `
+      <b>${rollType === "attribute" ? "Attribute Roll" : "Skill Roll"}</b><br>
+      Target: ${target}<br>
+      Roll: ${value}<br>
+      <b>DOS: ${DOS}</b>
+    `
+  });
+});
+
     // --------------------------------
     // RACE-DEPENDENT EXTRA DROPDOWNS
     // --------------------------------
